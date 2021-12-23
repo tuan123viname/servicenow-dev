@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Import Sheet Track" max_length="40" name="x_613320_google_in_import_sheet_track" sizeclass="60" type="collection">
+        <element label="Index" max_length="40" name="index" type="integer"/>
+        <element label="Reason" max_length="200" name="reason" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Sheet ID" mandatory="true" max_length="40" name="sheet_id" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Sheet Type" max_length="40" name="sheet_type" type="string"/>
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Status" max_length="40" name="status" type="string">
+            <choice>
+                <element inactive_on_update="false" label="open" sequence="0" value="Open"/>
+                <element inactive_on_update="false" label="imported" sequence="1" value="Imported"/>
+                <element inactive_on_update="false" label="Failed" sequence="2" value="failed"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Title" max_length="40" name="title" type="string"/>
+    </element>
+</database>

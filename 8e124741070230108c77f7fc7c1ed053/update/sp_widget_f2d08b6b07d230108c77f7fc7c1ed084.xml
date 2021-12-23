@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($scope,spModal) {
+  /* widget controller */
+  var c = this;
+  $scope.selectedEmployee = 'Vũng Tàu';
+ 
+
+  $scope.parent = 'xxx';
+  $scope.filterCondition = {
+    operator: 'neq'
+}
+
+$scope.operators = [{
+    value: 'eq',
+    displayName: 'equals'
+}, {
+    value: 'neq',
+    displayName: 'not equal'
+}]
+  c.onOpen = function() {
+    //ask the user for a string
+    spModal.open({
+        title: 'Give me a name',
+        message: 'What would you like to name it?',
+        input: true,
+        value: c.name
+    }).then(function(name) {
+        c.name = name;
+    })
+};
+c.employee = 'HCM';
+c.onAgree = function() {
+  // ask the user for a string
+  // note embedded html in message
+  var h = '<h4>Apple likes people to agree to lots of stuff</h4>'
+  // Line feeds added to the following lines for presentation formatting.
+  var m = 'Your use of Apple software or hardware products is based on the software license and other terms and conditions in effect for the product at the time of purchase. Your agreement to these terms is required to install or use the product. '
+  spModal.open({
+      title: 'Do you agree?',
+      message: h + m,
+      buttons: [
+          {label:'✘ ${No}', cancel: true},
+          {label:'✔ ${Yes}', primary: true}
+      ]
+  }).then(function() {
+      c.agree = 'yes';
+  }, function() {
+      c.agree = 'no';
+  })
+}
+
+
+c.onWidget = function(widgetId, widgetInput) {
+  spModal.open({
+      title: 'Displaying widget ' + widgetId,
+      widget: widgetId, 
+      widgetInput: widgetInput || {}
+  }).then(function(){
+      console.log('widget dismissed');
+  })      
+}
+
+
+ 
+  $(document).ready(function(){
+    $('.open_model').click(function(){
+      
+      $('.hop_thoai').addClass('show');
+      $('.nen_mo').addClass('show');
+    });
+    
+    $('.btn_close').click(function(){
+      
+      $('.hop_thoai').removeClass('show');
+      $('.nen_mo').removeClass('show');
+    });
+
+    $('.nen_mo').click(function(){
+      $('.hop_thoai').removeClass('show');
+      $('.nen_mo').removeClass('show');
+    });
+
+    c.createProject = function(){
+    
+      console.log($scope.parent);
+      c.server.get({
+        action : 'create_project',
+        formData : {
+          parent : $scope.parent,
+        }
+      })
+      .then(function(res) {
+        console.log('create project success');
+        $('.hop_thoai').removeClass('show');
+        $('.nen_mo').removeClass('show');
+      });
+    };
+
+  });
+  
+  
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>*{&#13;
+    margin: 0;&#13;
+    padding: 0;&#13;
+}&#13;
+ &#13;
+button.open_model {&#13;
+    padding: 6px;&#13;
+    color: white;&#13;
+    background-color: cadetblue;&#13;
+    cursor: pointer;&#13;
+    border-radius: 10px;&#13;
+}&#13;
+button.close_model {&#13;
+    padding: 6px;&#13;
+    color: white;&#13;
+    background-color: red;&#13;
+    cursor: pointer;&#13;
+    border-radius: 10px;&#13;
+}&#13;
+.node {&#13;
+    width: 40%;&#13;
+    text-align: center;&#13;
+    margin-top: 21px;&#13;
+}&#13;
+&#13;
+.hop_thoai {&#13;
+    width: 450px;&#13;
+    height: 300px;&#13;
+    background: white;&#13;
+    border-radius: 2px;&#13;
+    box-shadow:rgba(185, 173, 185, 0.582);&#13;
+    color: black;&#13;
+    position: fixed;&#13;
+    top: 40%;&#13;
+    left: 50%;&#13;
+    margin-left: -228px;&#13;
+    margin-top: -248px;&#13;
+    z-index: 2;&#13;
+    opacity: 0; // ẩn trên view&#13;
+    visibility: hidden; // làm biến mất&#13;
+    transition: 0.6s; // chuyển động&#13;
+    border-radius: 20px; // bo góc &#13;
+    transform: translateY(500px);&#13;
+}&#13;
+.noidung {&#13;
+    text-align: center;&#13;
+}&#13;
+&#13;
+.noidung h1 {&#13;
+    padding: 10px 15px;&#13;
+    width: 100%;&#13;
+}&#13;
+&#13;
+button.btn_close {&#13;
+    color: white;&#13;
+    background: red;&#13;
+    padding: 5px;&#13;
+    border-radius: 12px; // bo góc&#13;
+    margin-left: 351px;&#13;
+    margin-top: 47px;&#13;
+}&#13;
+.nen_mo {&#13;
+    width: 100%;&#13;
+    height: 100%;&#13;
+    background: rgba(185, 173, 185, 0.582);&#13;
+    position: fixed;&#13;
+    top: 0;&#13;
+    left: 0;    &#13;
+    z-index: 1; // giúp cho model nổi trên nền này&#13;
+    opacity: 0; // ẩn trên view&#13;
+    visibility: hidden; // làm biến mất&#13;
+    transition: 0.6s; // chuyễn động&#13;
+     // trượt&#13;
+}&#13;
+.show {&#13;
+    opacity: 1; // ẩn trên view&#13;
+    visibility:visible; // làm biến mất&#13;
+    transform: translateY(0px); // trượt&#13;
+}&#13;
+.hide{&#13;
+    opacity: 0; // ẩn trên view&#13;
+    visibility:hidden; // làm biến mất&#13;
+}&#13;
+.header {&#13;
+    &#13;
+    padding: 6px;&#13;
+    text-align: center;&#13;
+    color: blue;&#13;
+    margin: 4px;&#13;
+    font-size: 37px;&#13;
+    font-style: italic;&#13;
+    font-variant: all-petite-caps;&#13;
+    &#13;
+}&#13;
+.conten {&#13;
+    width: 100%;&#13;
+    margin: 11px;&#13;
+    padding: 11px;&#13;
+    text-align: left;&#13;
+}&#13;
+input.form-controll {&#13;
+    width: 100%;&#13;
+    margin-bottom: 10px;&#13;
+    border-radius: 5px;&#13;
+    &#13;
+}&#13;
+label .form_controll {&#13;
+    font-size: 22px;&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>weebpal logtime list</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+  data.weebpalLogtime =[];
+  var gr = new GlideRecord('x_613320_google_in_weebpal_log_time_item');
+  gr.query();
+  while(gr.next())
+  {
+    data.weebpalLogtime.push({
+      number: gr.getValue('number'),
+      parent: gr.getDisplayValue('parent'),
+      project: gr.getValue('project'),
+      spenttime: gr.getValue('spent_time'),
+      status: gr.getValue('status'),
+    });
+  }
+  if(input)
+  {
+    console.log(input);
+  }
+  var employees = [
+    {"id":1,"name":"Phát Lê", "department":"it", "old": 21, "city": "HCM"},
+    {"id":2,"name":"Thái Lê", "department":"it", "old": 22, "city": "Đà Nẵng"},
+    {"id":3,"name":"Ngọc Lê", "department":"it", "old": 23, "city": "Đà Nẵng"},
+    {"id":4,"name":"Hải Lê", "department":"it", "old": 21, "city": "Vũng Tàu"},
+    {"id":5,"name":"Phú Lê", "department":"it", "old": 20, "city": "Nha Trang"},
+    {"id":6,"name":"Phong Lê", "department":"it", "old": 19, "city": "Tây Ninh"},
+    {"id":7,"name":"Phương Lê", "department":"it", "old": 22, "city": "Bến Tre"},
+    {"id":8,"name":"Hà Lê", "department":"it", "old": 22, "city": "Hòa Mỹ"},
+];
+  data.employees = employees;
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-06 06:54:53</sys_created_on>
+        <sys_id>f2d08b6b07d230108c77f7fc7c1ed084</sys_id>
+        <sys_mod_count>121</sys_mod_count>
+        <sys_name>weebpal logtime list</sys_name>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_update_name>sp_widget_f2d08b6b07d230108c77f7fc7c1ed084</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-23 15:29:10</sys_updated_on>
+        <template><![CDATA[<div>
+<!-- your widget template -->
+<div class="cropbox">
+  <select ng-model="selectedEmployee">
+    <option ng-selected= "{{employee.city == selectedEmployee}}" ng-repeat="employee in c.data.employees" value="" >{{employee.city}}</option>
+  </select>
+  <div ng-model="c.data.employee">
+    {{employee.city}}
+    {{selectedEmployee.city}}
+  </div>
+  
+  <div>Operator is: {{filterCondition.operator}}</div>
+  <select ng-model="filterCondition.operator">
+      <option ng-selected="{{operator.value == filterCondition.operator}}" ng-repeat="operator in operators" value="{{operator.value}}">{{operator.displayName}}</option>
+  </select>
+</div>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Number</th>
+            <th>Parent</th>
+            <th>Project</th>
+            <th>Spent Time</th>
+            <th>Status</th>
+            <td>{{item.number}}</td>
+            <td>{{item.number}}</td>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in c.data.weebpalLogtime | limitTo:7">
+            <td>{{item.number}}</td>
+            <td>{{item.parent}}</td>
+            <td>{{item.project}}</td>
+            <td>{{item.spenttime}}</td>
+            <td>{{item.status}}</td>
+        </tr>
+    </tbody>
+</table>
+<div class="node">
+    <button class="open_model">Open</button>
+    
+</div>
+<div class="nen_mo">
+</div>
+<div class="hop_thoai">
+    <div class="header">
+        thông tin logtime
+    </div>
+    <hr>
+    <div class="noidung">
+        <div class="conten">
+        <label for=""class="form-controll">Parent: </label> <br> <input ng-model="parent" type="text" class="form-controll"> <br> 
+        <label for=""class="form-controll">Project: </label> <br> <input type="text"class="form-controll" > <br>
+        <label for=""class="form-controll">spenttime: </label> <br> <input type="text" class="form-controll" > <br>   
+        <button ng-click="c.createProject()" class="btn_close">dong</button>
+    </div>        
+    </div>
+</div>
+<!--//////////////////////////////////////////////////////-->
+<button ng-click="c.onOpen()" class="btn btn-default">
+    Prompt with label
+  </button>
+  <div ng-show="c.name">
+    You answered <span>{{c.name}}</span>
+  </div>
+
+  <!--//////////////////////////////////////////////////////-->
+
+  <button ng-click="c.onAgree()" class="btn btn-default">
+    Agree
+  </button>
+  <div ng-show="c.agree">
+    You answered {{c.agree}}
+  </div>
+
+  <!--//////////////////////////////////////////////////////////-->
+
+  <button ng-click="c.onWidget('widget-cool-clock')" class="btn btn-default">
+    Cool Clock
+  </button>
+</div>]]></template>
+    </sp_widget>
+</record_update>

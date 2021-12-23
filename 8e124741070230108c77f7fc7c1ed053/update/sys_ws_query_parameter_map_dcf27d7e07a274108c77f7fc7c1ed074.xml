@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ws_query_parameter_map">
+    <sys_ws_query_parameter_map action="INSERT_OR_UPDATE">
+        <sys_class_name>sys_ws_query_parameter_map</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-16 03:34:38</sys_created_on>
+        <sys_id>dcf27d7e07a274108c77f7fc7c1ed074</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>b9207dfa07a274108c77f7fc7c1ed0cc</sys_name>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_update_name>sys_ws_query_parameter_map_dcf27d7e07a274108c77f7fc7c1ed074</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-16 03:34:38</sys_updated_on>
+        <web_service_operation display_value=" ni_getinfo">8a82f57e07a274108c77f7fc7c1ed08b</web_service_operation>
+        <web_service_query_parameter display_value="ni_query">b9207dfa07a274108c77f7fc7c1ed0cc</web_service_query_parameter>
+    </sys_ws_query_parameter_map>
+</record_update>

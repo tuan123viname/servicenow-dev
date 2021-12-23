@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="u_利益率" label="利益率" language="en" table="x_613320_google_in_test_staging_3">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>u_利益率</element>
+            <help/>
+            <hint/>
+            <label>利益率</label>
+            <language>en</language>
+            <name>x_613320_google_in_test_staging_3</name>
+            <plural>利益率s</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2021-11-25 02:48:36</sys_created_on>
+            <sys_id>ecc78299070001108c77f7fc7c1ed034</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>利益率</sys_name>
+            <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+            <sys_update_name>sys_documentation_x_613320_google_in_test_staging_3_u_利益率_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2021-11-25 02:48:36</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

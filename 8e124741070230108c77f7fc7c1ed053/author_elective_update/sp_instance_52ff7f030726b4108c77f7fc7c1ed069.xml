@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="2">87cd33cf07e2b4108c77f7fc7c1ed05c</sp_column>
+        <sp_widget display_value="Appsec Scanner">f75a3d6b8703001001c8de05b7cb0b44</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-17 08:29:01</sys_created_on>
+        <sys_id>52ff7f030726b4108c77f7fc7c1ed069</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_update_name>sp_instance_52ff7f030726b4108c77f7fc7c1ed069</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-17 08:29:01</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters/>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=52ff7f030726b4108c77f7fc7c1ed069"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Google integration">8e124741070230108c77f7fc7c1ed053</application>
+        <file_path/>
+        <instance_id>00042fcddb279708ff27d5b0cf961918</instance_id>
+        <instance_name>dev67130</instance_name>
+        <name>sp_instance_52ff7f030726b4108c77f7fc7c1ed069</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance"><sp_instance action="INSERT_OR_UPDATE"><active>true</active><class_name/><color>default</color><css/><glyph/><id/><order>1</order><roles/><short_description/><size>md</size><sp_column display_value="2">87cd33cf07e2b4108c77f7fc7c1ed05c</sp_column><sp_widget display_value="Appsec Scanner">f75a3d6b8703001001c8de05b7cb0b44</sp_widget><sys_class_name>sp_instance</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2021-09-17 08:29:01</sys_created_on><sys_id>52ff7f030726b4108c77f7fc7c1ed069</sys_id><sys_mod_count>0</sys_mod_count><sys_name/><sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package><sys_policy/><sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope><sys_update_name>sp_instance_52ff7f030726b4108c77f7fc7c1ed069</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2021-09-17 08:29:01</sys_updated_on><title/><url/><widget_parameters/></sp_instance><sys_translated_text action="delete_multiple" query="documentkey=52ff7f030726b4108c77f7fc7c1ed069"/></record_update>]]></payload>
+        <payload_hash>-1978064887</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>45c26fb107c230108c77f7fc7c1ed0f8</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-17 08:29:01</sys_created_on>
+        <sys_id>16ff7f030726b4108c77f7fc7c1ed06b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17bf2df89fb0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-17 08:29:01</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>5eff7f030226b410d105cb7f8f07ee6a</update_guid>
+        <update_guid_history>5eff7f030226b410d105cb7f8f07ee6a:-1978064887</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">863040530726b4108c77f7fc7c1ed0db</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-17 08:30:05</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>3b5854066765401897e88471c92cc9e4</sys_id>
+        <sys_metadata>52ff7f030726b4108c77f7fc7c1ed069</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_scope_delete display_value="">4a57d957d04840b7be5392ebaf077171</sys_scope_delete>
+        <sys_update_name>sp_instance_52ff7f030726b4108c77f7fc7c1ed069</sys_update_name>
+        <sys_update_version display_value="sp_instance_52ff7f030726b4108c77f7fc7c1ed069">16ff7f030726b4108c77f7fc7c1ed06b</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-17 08:30:05</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

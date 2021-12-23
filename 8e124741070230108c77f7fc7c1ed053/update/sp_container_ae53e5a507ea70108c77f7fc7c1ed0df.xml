@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container">
+    <sp_container action="INSERT_OR_UPDATE">
+        <background_color/>
+        <background_image/>
+        <background_style>default</background_style>
+        <bootstrap_alt>false</bootstrap_alt>
+        <class_name/>
+        <container_class_name/>
+        <name>weebpal log time list - Container 1</name>
+        <order>1</order>
+        <sp_page display_value="weebpal_log_time_list">801321a507ea70108c77f7fc7c1ed01a</sp_page>
+        <subheader>false</subheader>
+        <sys_class_name>sp_container</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-12 05:13:50</sys_created_on>
+        <sys_id>ae53e5a507ea70108c77f7fc7c1ed0df</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>weebpal log time list - Container 1</sys_name>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_update_name>sp_container_ae53e5a507ea70108c77f7fc7c1ed0df</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-12 05:13:50</sys_updated_on>
+        <title/>
+        <width>container</width>
+    </sp_container>
+</record_update>

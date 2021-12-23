@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($scope ,$rootScope ,$uibModal, spUtil) {
+  /* widget controller */
+  var c = this;
+
+
+  $scope.openModal = function() {
+    console.log("abc");
+    spUtil.addInfoMessage("CLIENT");
+    $scope.modalInstance = $uibModal.open({
+      'templateUrl' : 'workspace-modal',
+      // controller: popupController,
+      // controllerAs: 'ctrl',
+    })
+  }
+
+  // c.openModal = function() {
+  //   console.log("abc");
+  //   c.modalInstance = $uibModal.open({
+  //     templateUrl: 'workspace-modal',
+  //     // controller: popupController,
+      
+  //     });
+  // } 
+
+  $scope.closeModal = function() {
+    $scope.modalInstance.close();
+  }
+
+  $scope.testthree = function() {
+    spUtil.addInfoMessage("testThree");
+    c.server.get({
+      action: 'createWork',
+      name: 'testThree',
+      description: 'test'
+    })
+  }
+
+  spUtil.recordWatch($scope, 'x_613320_google_in_workspace','' , function(name) {
+    // if(name.data.operation == 'insert') {
+    //   spUtil.addInfoMessage("insert");
+    // }
+    console.log(name);
+  })
+  
+  c.test = function() {
+    spUtil.addInfoMessage("test");
+    console.log("client");
+  }
+
+  $scope.testTwo = function() {
+    spUtil.addInfoMessage("testTwo");
+  }
+
+  function popupController($scope, $ui) {
+    var ctrl = this;
+    console.log("popup");
+    $scope.test = function() {
+      console.log("client");
+    }
+  }
+
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.workspace-widget-container {
+  .actions {
+    padding: 20px 0;
+    text-align: right;
+  }
+
+  .workspace-list {
+   display: flex;
+   flex-wrap: wrap;
+   
+   .item {
+      width: 200px;
+      text-align: center;
+      border: solid 1px #ccc;
+      padding : 10px;
+      border-radius: 5px;
+      margin: 5px;
+      .name {
+        color: #333;
+        font-size: 24px;
+        font-weight: 600;
+
+      }
+
+      .description {
+        font-size: 15px;
+        color: #444;
+      }
+   }
+  }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>workspace_list</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Workspace list</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+  data.workspaces = [];
+  var gr = new GlideRecord('x_613320_google_in_workspace');
+  gr.query();
+  while(gr.next()) {
+    data.workspaces.push({
+      sys_id : gr.getUniqueValue(),
+      name : gr.getValue('name'),
+      description : gr.getValue('description')
+    });
+  }
+
+  if (input) {
+    if (input.action == 'createWork') {
+      gr.initialize();
+      gr.name = input.name;
+      gr.description = input.description,
+      gr.insert();
+    }
+  }
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-06 06:21:24</sys_created_on>
+        <sys_id>d229b6e307d230108c77f7fc7c1ed0b4</sys_id>
+        <sys_mod_count>98</sys_mod_count>
+        <sys_name>Workspace list</sys_name>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_update_name>sp_widget_d229b6e307d230108c77f7fc7c1ed0b4</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-20 09:39:03</sys_updated_on>
+        <template><![CDATA[<div class="workspace-widget-container">
+  <div class="actions">
+      <button ng-click = "openModal()" class="create-btn btn btn-success">
+        Create a Workspace
+      </button>
+  </div>
+
+  <div class="actions">
+    <button ng-click = "testthree()" class="create-btn btn btn-success">
+      Submit
+    </button>
+</div>
+
+  <div class="workspace-list">
+    <a href="/w_task?id=workspace&sys_id={{item.sys_id}}" class="item" ng-repeat = "item in data.workspaces">
+      <span  class="name">{{ item.name }}</span>
+      <p class="description">
+        {{ item.description }}
+      </p>
+    </a>
+  </div>
+</div>
+
+
+<script type="text/ng-template" id = "workspace-modal">
+  <div class="modal-header">
+    <h3>Create a Workspace</h3>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="">Name</label><input  ng-model = "c.name" type="text" class = 'form-control'/>
+      <label for="">Description</label><input  ng-model = "c.description" type="text" class = 'form-control'/>
+      <button  ng-click = "test()" class = "btn btn-success">Submit</button>
+      <button ng-click = "testTwo()" class="create-btn btn btn-success">
+        Create a Workspace
+      </button>
+    </div>
+  </div>
+</script>]]></template>
+    </sp_widget>
+</record_update>

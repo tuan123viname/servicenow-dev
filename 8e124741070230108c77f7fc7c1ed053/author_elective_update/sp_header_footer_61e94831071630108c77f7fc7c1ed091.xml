@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_header_footer">
+    <sp_header_footer action="DELETE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id>weebpal_header</id>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Weebpal header</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <static>false</static>
+        <sys_class_name>sp_header_footer</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-08-31 07:06:13</sys_created_on>
+        <sys_id>61e94831071630108c77f7fc7c1ed091</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Weebpal header</sys_name>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_update_name>sp_header_footer_61e94831071630108c77f7fc7c1ed091</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-08-31 07:10:55</sys_updated_on>
+        <template><![CDATA[<div>
+<!-- your widget template -->
+  <h3>Hello</h3>
+</div>]]></template>
+    </sp_header_footer>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Google integration">8e124741070230108c77f7fc7c1ed053</application>
+        <file_path/>
+        <instance_id>00042fcddb279708ff27d5b0cf961918</instance_id>
+        <instance_name>dev67130</instance_name>
+        <name>sp_header_footer_61e94831071630108c77f7fc7c1ed091</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_header_footer"&gt;&lt;sp_header_footer action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+};]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css/&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;true&lt;/has_preview&gt;&lt;id&gt;weebpal_header&lt;/id&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]&gt;&lt;/link&gt;&lt;name&gt;Weebpal header&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;true&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;static&gt;false&lt;/static&gt;&lt;sys_class_name&gt;sp_header_footer&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-08-31 07:06:13&lt;/sys_created_on&gt;&lt;sys_id&gt;61e94831071630108c77f7fc7c1ed091&lt;/sys_id&gt;&lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;&lt;sys_name&gt;Weebpal header&lt;/sys_name&gt;&lt;sys_package display_value="Google integration" source="x_613320_google_in"&gt;8e124741070230108c77f7fc7c1ed053&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Google integration"&gt;8e124741070230108c77f7fc7c1ed053&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_header_footer_61e94831071630108c77f7fc7c1ed091&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-08-31 07:10:55&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div&gt;
+&lt;!-- your widget template --&gt;
+  &lt;h3&gt;Hello&lt;/h3&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_header_footer&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>340221575</payload_hash>
+        <record_name>Weebpal header</record_name>
+        <reverted_from/>
+        <source>45c26fb107c230108c77f7fc7c1ed0f8</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-08-31 07:10:55</sys_created_on>
+        <sys_id>941b0871071630108c77f7fc7c1ed066</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17b9b0bec820000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-08-31 07:10:55</sys_updated_on>
+        <type>Header | Footer</type>
+        <update_guid>dc1b0871f816301030d4a851335d9065</update_guid>
+        <update_guid_history>dc1b0871f816301030d4a851335d9065:340221575,af2ac8312416301031a4465b84287e66:-418180606,f7f98831bd163010a8f65735ae30bab2:-1468186039</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Weebpal header">afbc8cb1071630108c77f7fc7c1ed03c</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-08-31 07:18:13</sys_created_on>
+        <sys_db_object display_value="" name="sp_header_footer">sp_header_footer</sys_db_object>
+        <sys_id>92eea1c794f74668975761ff265ccde1</sys_id>
+        <sys_metadata>61e94831071630108c77f7fc7c1ed091</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Weebpal header</sys_name>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_scope_delete display_value="">4a57d957d04840b7be5392ebaf077171</sys_scope_delete>
+        <sys_update_name>sp_header_footer_61e94831071630108c77f7fc7c1ed091</sys_update_name>
+        <sys_update_version display_value="sp_header_footer_61e94831071630108c77f7fc7c1ed091">941b0871071630108c77f7fc7c1ed066</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-08-31 07:18:13</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

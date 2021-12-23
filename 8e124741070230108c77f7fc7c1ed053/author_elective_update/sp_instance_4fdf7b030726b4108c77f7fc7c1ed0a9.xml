@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance">
+    <sp_instance action="DELETE">
+        <active>true</active>
+        <class_name/>
+        <color>default</color>
+        <css/>
+        <glyph/>
+        <id/>
+        <order>1</order>
+        <roles/>
+        <short_description/>
+        <size>md</size>
+        <sp_column display_value="1">80cdb38f07e2b4108c77f7fc7c1ed0c4</sp_column>
+        <sp_widget display_value="Approvals">f37aa302cb70020000f8d856634c9cfc</sp_widget>
+        <sys_class_name>sp_instance</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-17 08:28:31</sys_created_on>
+        <sys_id>4fdf7b030726b4108c77f7fc7c1ed0a9</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_update_name>sp_instance_4fdf7b030726b4108c77f7fc7c1ed0a9</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-17 08:28:46</sys_updated_on>
+        <title/>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"portal": {
+		"value": "",
+		"displayValue": ""
+	},
+	"max_number_of_elements_shown_on_the_list": {
+		"value": null,
+		"displayValue": ""
+	}
+}]]></widget_parameters>
+    </sp_instance>
+    <sys_translated_text action="DELETE" query="documentkey=4fdf7b030726b4108c77f7fc7c1ed0a9"/>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Google integration">8e124741070230108c77f7fc7c1ed053</application>
+        <file_path/>
+        <instance_id>00042fcddb279708ff27d5b0cf961918</instance_id>
+        <instance_name>dev67130</instance_name>
+        <name>sp_instance_4fdf7b030726b4108c77f7fc7c1ed0a9</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_instance"&gt;&lt;sp_instance action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;class_name/&gt;&lt;color&gt;default&lt;/color&gt;&lt;css/&gt;&lt;glyph/&gt;&lt;id/&gt;&lt;order&gt;1&lt;/order&gt;&lt;roles/&gt;&lt;short_description/&gt;&lt;size&gt;md&lt;/size&gt;&lt;sp_column display_value="1"&gt;80cdb38f07e2b4108c77f7fc7c1ed0c4&lt;/sp_column&gt;&lt;sp_widget display_value="Approvals"&gt;f37aa302cb70020000f8d856634c9cfc&lt;/sp_widget&gt;&lt;sys_class_name&gt;sp_instance&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-09-17 08:28:31&lt;/sys_created_on&gt;&lt;sys_id&gt;4fdf7b030726b4108c77f7fc7c1ed0a9&lt;/sys_id&gt;&lt;sys_mod_count&gt;1&lt;/sys_mod_count&gt;&lt;sys_name/&gt;&lt;sys_package display_value="Google integration" source="x_613320_google_in"&gt;8e124741070230108c77f7fc7c1ed053&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Google integration"&gt;8e124741070230108c77f7fc7c1ed053&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_instance_4fdf7b030726b4108c77f7fc7c1ed0a9&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-09-17 08:28:46&lt;/sys_updated_on&gt;&lt;title/&gt;&lt;url/&gt;&lt;widget_parameters&gt;&lt;![CDATA[{
+	"portal": {
+		"value": "",
+		"displayValue": ""
+	},
+	"max_number_of_elements_shown_on_the_list": {
+		"value": null,
+		"displayValue": ""
+	}
+}]]&gt;&lt;/widget_parameters&gt;&lt;/sp_instance&gt;&lt;sys_translated_text action="delete_multiple" query="documentkey=4fdf7b030726b4108c77f7fc7c1ed0a9"/&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1352966551</payload_hash>
+        <record_name/>
+        <reverted_from/>
+        <source>45c26fb107c230108c77f7fc7c1ed0f8</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-17 08:28:47</sys_created_on>
+        <sys_id>7eef7f030726b4108c77f7fc7c1ed09f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17bf2df52360000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-17 08:28:47</sys_updated_on>
+        <type>Instance</type>
+        <update_guid>b6ef7f036526b410a73aa230f9bb8b9f</update_guid>
+        <update_guid_history>b6ef7f036526b410a73aa230f9bb8b9f:1352966551,47df7b03c926b4108569ae806c865cac:1831934718</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="">b51000530726b4108c77f7fc7c1ed04b</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-17 08:29:31</sys_created_on>
+        <sys_db_object display_value="" name="sp_instance">sp_instance</sys_db_object>
+        <sys_id>0551307bed7b4dc0a7789ce6e7a4c400</sys_id>
+        <sys_metadata>4fdf7b030726b4108c77f7fc7c1ed0a9</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_scope_delete display_value="">4a57d957d04840b7be5392ebaf077171</sys_scope_delete>
+        <sys_update_name>sp_instance_4fdf7b030726b4108c77f7fc7c1ed0a9</sys_update_name>
+        <sys_update_version display_value="sp_instance_4fdf7b030726b4108c77f7fc7c1ed0a9">7eef7f030726b4108c77f7fc7c1ed09f</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-17 08:29:31</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($rootScope, $window,$uibModal,$scope,spUtil) {
+  /* widget controller */
+  var c = this;
+  
+	//$rootScope.show= false;
+  $scope.searchText ='';
+  $scope.hoverProject = false;
+  $rootScope.group = {
+    displayValue: "",
+    value: "",
+    name: 'group'
+  };
+  $rootScope.project = {
+    displayValue: "",
+    value: "",
+    name: 'project'
+  };
+  //$rootScope.check_hide_show= true;
+  $scope.check_hide_show = false;
+  $scope.check_btn_left =true;
+  $scope.check_btn_right = false;
+  
+  $rootScope.$on('field.change', function(evt, parms) {
+    console.log(parms);
+    if(parms.field.name=='group'){
+      $rootScope.group = parms.field;
+    }
+    if(parms.field.name=='workspace')
+    {
+      $rootScope.workspace = parms.field;
+    }
+    if(parms.field.name=="project") {
+      $rootScope.project = parms.field;
+    }
+    
+    //console.log($rootScope.group);
+    // if (parms.field.name == 'assigned_user') {
+    //   $rootScope.assigned_user = parms.field;
+    //   console.log($rootScope.assigned_user);
+    // }
+  })
+
+  // $rootScope.createProject = function(){
+  //   c.closeModal();
+  //   console.log(c.name);
+  //   c.server.get({
+  //     action : 'create_project',
+  //     formData : {
+  //       name_project : c.name,
+  //       group : $rootScope.group.value,
+  //     }
+  //   })
+  //   .then(function(res) {
+  //     console.log('create project success');
+  //   });
+  // };
+  c.unHoverImgPlus = function(id){
+    var toolTipId = "#toolTip"+id;
+     $(toolTipId).addClass("defaultTooltip");
+  };
+  c.hoverImgPlus =function(id) {
+    var toolTipId = "#toolTip"+id;
+    $(toolTipId).removeClass("defaultTooltip");
+  };
+  c.unhoverProject = function(id) {
+    var x ='#imgPlus' + id;
+     $(x).removeClass("hoverProject");
+     $(x).addClass("defaultPlus");
+  };
+   c.hoverProject = function(len,id){
+     var x ='#imgPlus' + id;
+     $(x).removeClass("defaultPlus");
+     $(x).addClass("hoverProject");
+   };
+
+  c.triggerFunction = function(sys_id,name,project){
+    var obj={
+      section_id : sys_id,
+      section_name : name,
+      section_project: project,
+    }
+     $rootScope.$emit('show_task_list',obj);  
+    //console.log('asdfasdfasdf');
+  };
+  c.openModalProject = function(){
+    c.modalInstance = $uibModal.open({
+      'templateUrl' : 'workspace-modal-project',
+      controller: popupController,
+      controllerAs: 'ctrl',
+    })
+  }
+  c.openModal = function() {
+    c.modalInstance2 = $uibModal.open({
+      'templateUrl' : 'workspace-modal',
+      controller: popupController2,
+      controllerAs: 'ctrl2',
+    })
+  };
+  function popupController2($scope, $uibModalInstance) {
+    var ctrl2 = this;
+    $scope.name_section = 'ldsfjl';
+   
+    $scope.createSection = function() {
+      console.log('ldsfjl');
+      c.server.get({
+             action : 'create_section',
+             formData : {
+               project : $rootScope.project.value,
+             }
+           })
+      .then(function(res) {
+        
+        c.closeModal();
+      })
+    }
+    
+    c.closeModal = function() {
+      c.modalInstance.close();
+    }
+  }
+  function popupController($scope, $uibModalInstance) {
+    var ctrl = this;
+    $scope.name = '';
+    $scope.createProject = function() {
+      c.server.get({
+             action : 'create_project',
+             formData : {
+               name_project : $scope.name,
+               group : $scope.group.value,
+               workspace: $scope.workspace.value,
+             }
+           })
+      .then(function(res) {
+        c.closeModal();
+      })
+    }
+
+    
+    
+    c.closeModal = function() {
+      c.modalInstance.close();
+    }
+  }
+  
+  $rootScope.$emit('show_task_list','ascvasd');
+  // $window.onload = function(){
+  //   $('.button_show_hide .button_left').click(function(){
+  //     $('.khoitong').css('width','50px');
+  //   });
+  // };
+
+  c.hide = function() {
+    //$('.button_show_hide .button_left').css('display','none');
+    $('.motkhoi').css('display','none');
+    $('.input_search').css('display','none');
+    $('.container h2').css('display','none');
+    $('.kinhlup').css('display','none');
+    $('.khoitong').css('width','50px');
+    $scope.check_btn_left = false;
+    $scope.check_btn_right = true;
+    $scope.check_hide_show = true;
+  };
+
+  c.show = function() {
+    //$('.button_show_hide .button_left').css('display','');
+    $('.motkhoi').css('display','');
+    $('.input_search').css('display','');
+    $('.container h2').css('display','');
+    $('.kinhlup').css('display','');
+    $('.button_show_hide .button_right').css('display','none');
+    $scope.check_hide_show= false;
+    $scope.check_btn_left = true;
+    $scope.check_btn_right = false;
+    $('.khoitong').css('width','290px');
+  };
+
+  c.display = function(index,length){
+    var i=0;
+    while(i<length)
+    {
+      if(i==index)
+      {
+        i++;
+      }
+      else {
+        c.data.projectList[i].display = false;
+      i++;
+      }
+    }
+    if(c.data.projectList[index].display == true) {
+      c.data.projectList[index].display = false;
+    }
+    else {
+      c.data.projectList[index].display = true;
+    }
+    
+    
+
+  }
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>*{margin: 0; padding: 0;}&#13;
+// .ndmotkhoi {&#13;
+//     padding: 10px;&#13;
+//     border: solid gray 1px;&#13;
+//     background: #bff3dd;&#13;
+// }&#13;
+ul.section.ng-scope {&#13;
+    font-size: 22px;&#13;
+}&#13;
+.khoitong  .toolip1 .content{&#13;
+    position: absolute;&#13;
+}&#13;
+&#13;
+.khoitong {&#13;
+    background-color: pink;&#13;
+    width: 290px;   &#13;
+    position: fixed;    &#13;
+    left: 0;    &#13;
+    height: 100%; &#13;
+    border-right: 2px solid rgb(177, 172, 172);&#13;
+    border-top: 2px solid rgb(177, 172, 172);&#13;
+    border-radius: 15px;&#13;
+    z-index: 0;&#13;
+}&#13;
+// .content {&#13;
+//     overflow:scroll;&#13;
+//     z-index: 1;&#13;
+//     width: 309px;&#13;
+    &#13;
+// }&#13;
+&#13;
+ &#13;
+.toolip1 {&#13;
+    z-index: 2;&#13;
+    position: relative;&#13;
+}&#13;
+&#13;
+&#13;
+.project_div {&#13;
+    padding-top: 12px;  &#13;
+    padding-left: 10px;&#13;
+    width: 290px;&#13;
+    position: relative;&#13;
+&#13;
+}&#13;
+ &#13;
+.divSearch {&#13;
+    padding-top: 10px;&#13;
+    padding-left: 9px;&#13;
+}&#13;
+input.input_search {&#13;
+    width: 87%;&#13;
+    padding-left: 5px;&#13;
+    height: 35px;&#13;
+    &#13;
+}&#13;
+.button_show_hide {&#13;
+    position: fixed;&#13;
+    padding-left: 5px;  &#13;
+    padding-top: 5px;&#13;
+    background-color: rgb(88, 206, 206);&#13;
+    bottom: 0px;&#13;
+}&#13;
+ &#13;
+.divSearch input{&#13;
+    border-radius: 15px;&#13;
+    width: 272px;&#13;
+}&#13;
+.defaultPlus {&#13;
+    display: none;&#13;
+}&#13;
+.hoverProject {&#13;
+    position: absolute;&#13;
+    right: 10px;&#13;
+    line-height: 38px;&#13;
+    top:24px;&#13;
+    cursor: pointer;&#13;
+  }&#13;
+.motkhoi:hover {&#13;
+    background-color: darkgrey;&#13;
+    color: white;&#13;
+    &#13;
+    &#13;
+}&#13;
+.project-item{&#13;
+    background-color:rgb(192, 188, 188);&#13;
+    color: black;&#13;
+}&#13;
+.project-item ul {&#13;
+    list-style-type: none;&#13;
+}&#13;
+.project_div {&#13;
+    line-height:38px;&#13;
+    &#13;
+}&#13;
+.container{&#13;
+    position: relative;&#13;
+    width :290px;&#13;
+}&#13;
+.container img{&#13;
+  &#13;
+    position: absolute;&#13;
+    right: 10px;&#13;
+    bottom: 1px;&#13;
+}&#13;
+.defaultTooltip {&#13;
+    visibility: hidden;&#13;
+}&#13;
+span.tooltiptext1 {&#13;
+    background-color: black;&#13;
+    color: white;&#13;
+    padding: 10px;&#13;
+    border-radius: 6px;&#13;
+    text-align: center;&#13;
+    position: absolute;&#13;
+    right: -29px;&#13;
+    top: -23px;&#13;
+   &#13;
+}&#13;
+span.tooltiptext1::after {&#13;
+    content: "";&#13;
+    position: absolute;&#13;
+    top: 100%;&#13;
+    left: 50%;&#13;
+    margin-left: -5px;&#13;
+    border-width: 5px;&#13;
+    border-style: solid;&#13;
+    border-color: black transparent transparent transparent;&#13;
+}&#13;
+.tooltip1 {&#13;
+    position: relative;&#13;
+    &#13;
+}&#13;
+.weebpal {&#13;
+    margin: 10px 14px;&#13;
+}&#13;
+.weebpal ul {&#13;
+    list-style-type: none;&#13;
+    display: -webkit-inline-box;&#13;
+}&#13;
+.weebpal li {&#13;
+    padding: 0px 9px;&#13;
+    padding-bottom: 0px;&#13;
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Project list top</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+  data.projectList=[];
+   var gr = new GlideRecord('x_613320_google_in_project');
+   gr.query();
+   while(gr.next())
+   {
+      var obj={
+        sys_id: gr.getUniqueValue(),
+        name: gr.getValue('name'),
+        workspace: gr.getDisplayValue('workspace'),
+        group: gr.getDisplayValue('group')
+      };
+      var section_obj={};
+      var sectionList =[];
+      var gr1 = new GlideRecord('x_613320_google_in_section');
+      gr1.addQuery('project',obj.sys_id);
+      gr1.query();
+      while(gr1.next())
+      {
+        section_obj = {
+          sys_id: gr1.getUniqueValue(),
+          name: gr1.getValue('name'),
+          project: gr1.getDisplayValue('project'),
+        }
+        sectionList.push(section_obj);
+      }
+      obj.sectionList = sectionList;
+      obj.display = false;
+      data.projectList.push(obj);
+   }
+
+   //console.log(data.projectList);
+   if(input)
+   {
+     console.log(input);
+     if(input.action =='create_project')
+     {
+       var gr =new GlideRecord('x_613320_google_in_project');
+       gr.initialize();
+       gr.name = input.formData.name_project;
+       gr.group = input.formData.group;
+       gr.workspace = input.formData.workspace;
+       gr.insert();
+     }
+   }
+
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-06 07:30:38</sys_created_on>
+        <sys_id>5b09cbaf07d230108c77f7fc7c1ed073</sys_id>
+        <sys_mod_count>489</sys_mod_count>
+        <sys_name>Project list top</sys_name>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_update_name>sp_widget_5b09cbaf07d230108c77f7fc7c1ed073</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-20 17:03:25</sys_updated_on>
+        <template><![CDATA[
+<!-- your widget template -->
+<div   class="khoitong">
+  <div class="header">
+    <div class="weebpal">
+      <ul>
+        <li>  <img src="snow.png" width="40" height="40"/></li>
+        <li><img src="weebpal.png" width="140" height="40"/></li>
+        <img src="drupal.png" width="40" height="40"/>
+        <li></li>
+      </ul>
+      
+    </div>
+    <div class="container">
+       <h2 style="padding: 0 12px;" > List<img ng-click="c.openModalProject()" id="imgDots" src="three_dots.png" width="16" height="16"/></h2>
+  </div>
+  </div>
+  
+<div class="divSearch">
+  <input ng-model="searchText" type="text" placeholder="Search.." class="input_search">  
+  <img ng-click="c.show()" ng-if='check_hide_show' src="filter.png" width="20" height="20"/>
+</div>
+<div class="content">
+  <div  class="motkhoi" ng-repeat="item in c.data.projectList | filter: searchText">
+    <!--begin toolip-->
+  <div class="tooltip1"> 
+    <span class="defaultTooltip tooltiptext1" id="toolTip{{$index}}">Create Section</span>
+  </div>
+  <!--end toolip-->  
+    <div ng-mouseover="c.hoverProject(item.length,$index)" ng-mouseleave="c.unhoverProject($index)" class="project_div">
+      <h3     
+      style="display: inline; margin-bottom: 1.3rem;" ng-click="c.display($index,c.data.projectList.length)"><img  style="padding-right: 10px;" src="folder.png" width="25" height="20"/>{{ item.name }}  
+      </h3> <img  class="defaultPlus" ng-mouseover="c.hoverImgPlus($index)" ng-mouseleave="c.unHoverImgPlus($index)" ng-click="c.openModal()" id="imgPlus{{$index}}" src="plus.png" width="12" height="12"/></div>          
+      <div class="project-item" ng-if="c.data.projectList[$index].display">
+          <ul style="padding-left: 37px;" class="section" ng-repeat="section in item.sectionList | filter: searchText" >
+              <li class="section-item" ng-click="c.triggerFunction(section.sys_id,section.name,section.project)">{{section.name}}</li>
+          </ul>
+      </div>
+  </div>
+</div>
+
+
+<div  class="button_show_hide">
+  <img ng-if="check_btn_left" ng-click="c.hide()" class="button_left" src="left_button.png" width="35" height="35"/>
+  <img ng-if="check_btn_right" ng-click="c.show()" class="button_right" src="right_button.png" width="35" height="35"/>
+</div>
+</div>
+<script type="text/ng-template" id = "workspace-modal">
+    <div class="modal-header">
+      <h3>Create Section</h3>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="">Name</label><input  ng-model = "name_section" type="text" class = 'form-control'/>
+        <!--<label for="">Project</label><input  ng-modal = "c.description" type="text" class = 'form-control' value="kinetone development"/>-->
+        <sn-record-picker  field="project" table="'x_613320_google_in_project'" default-query = "''" display-field="''" display-fields="'name'" value-field="'sys_id'" search-fields="'name'" page-size="10"  placeholder="Project" ></sn-record-picker>
+         <div class="modal-footer">
+            <button ng-click = "createSection()" class = "btn btn-success">Submit</button>
+         </div>
+        
+      </div>
+    </div>
+  </script>
+
+  <script type="text/ng-template" id = "workspace-modal-project">
+    <div class="modal-header">
+      <h3>Create Project</h3>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <!-- <label for="">Name</label><input id="input1" ng-model = "c.name_project" type="text" class = 'form-control'/> -->
+        <textarea ng-model="name" id="approveCmmt" placeholder="name。" style="width:80%;padding:10px;resize:vertical;" ></textarea>
+        <sn-record-picker  field="group" table="'sys_user_group'" default-query = "'active=true'" display-field="''" display-fields="'name,manager'" value-field="'sys_id'" search-fields="'name'" page-size="10"  placeholder="Group" ></sn-record-picker>
+        <sn-record-picker  field="workspace" table="'x_613320_google_in_workspace'" default-query = "" display-field="" display-fields="'name,description'" value-field="'sys_id'" search-fields="'name'" page-size="10"  placeholder="workspace" ></sn-record-picker>
+        <br>
+        <button ng-click = "createProject()" class = "btn btn-success" data-dismiss="modal">Submit</button>
+      </div>
+    </div>
+  </script>
+
+]]></template>
+    </sp_widget>
+</record_update>

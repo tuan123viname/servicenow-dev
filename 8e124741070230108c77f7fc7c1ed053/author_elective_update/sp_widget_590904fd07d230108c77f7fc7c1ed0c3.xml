@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="DELETE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Weebpal header</name>
+        <option_schema/>
+        <public>true</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-08-31 07:02:32</sys_created_on>
+        <sys_id>590904fd07d230108c77f7fc7c1ed0c3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Weebpal header</sys_name>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_update_name>sp_widget_590904fd07d230108c77f7fc7c1ed0c3</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-08-31 07:02:32</sys_updated_on>
+        <template><![CDATA[<div>
+<!-- your widget template -->
+</div>]]></template>
+    </sp_widget>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Google integration">8e124741070230108c77f7fc7c1ed053</application>
+        <file_path/>
+        <instance_id>00042fcddb279708ff27d5b0cf961918</instance_id>
+        <instance_name>dev67130</instance_name>
+        <name>sp_widget_590904fd07d230108c77f7fc7c1ed0c3</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sp_widget"&gt;&lt;sp_widget action="INSERT_OR_UPDATE"&gt;&lt;category&gt;custom&lt;/category&gt;&lt;client_script&gt;&lt;![CDATA[api.controller=function() {
+  /* widget controller */
+  var c = this;
+};]]&gt;&lt;/client_script&gt;&lt;controller_as&gt;c&lt;/controller_as&gt;&lt;css/&gt;&lt;data_table&gt;sp_instance&lt;/data_table&gt;&lt;demo_data/&gt;&lt;description/&gt;&lt;docs/&gt;&lt;field_list/&gt;&lt;has_preview&gt;true&lt;/has_preview&gt;&lt;id/&gt;&lt;internal&gt;false&lt;/internal&gt;&lt;link&gt;&lt;![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]&gt;&lt;/link&gt;&lt;name&gt;Weebpal header&lt;/name&gt;&lt;option_schema/&gt;&lt;public&gt;true&lt;/public&gt;&lt;roles/&gt;&lt;script&gt;&lt;![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+
+})();]]&gt;&lt;/script&gt;&lt;servicenow&gt;false&lt;/servicenow&gt;&lt;sys_class_name&gt;sp_widget&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-08-31 07:02:32&lt;/sys_created_on&gt;&lt;sys_id&gt;590904fd07d230108c77f7fc7c1ed0c3&lt;/sys_id&gt;&lt;sys_mod_count&gt;0&lt;/sys_mod_count&gt;&lt;sys_name&gt;Weebpal header&lt;/sys_name&gt;&lt;sys_package display_value="Google integration" source="x_613320_google_in"&gt;8e124741070230108c77f7fc7c1ed053&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Google integration"&gt;8e124741070230108c77f7fc7c1ed053&lt;/sys_scope&gt;&lt;sys_update_name&gt;sp_widget_590904fd07d230108c77f7fc7c1ed0c3&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-08-31 07:02:32&lt;/sys_updated_on&gt;&lt;template&gt;&lt;![CDATA[&lt;div&gt;
+&lt;!-- your widget template --&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;&lt;/sp_widget&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>1276298689</payload_hash>
+        <record_name>Weebpal header</record_name>
+        <reverted_from/>
+        <source>45c26fb107c230108c77f7fc7c1ed0f8</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-08-31 07:02:33</sys_created_on>
+        <sys_id>b92988fd07d230108c77f7fc7c1ed02a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17b9b04434a0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-08-31 07:02:33</sys_updated_on>
+        <type>Widget</type>
+        <update_guid>f12988fd32d23010f23fe2d60805e92a</update_guid>
+        <update_guid_history>f12988fd32d23010f23fe2d60805e92a:1276298689</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Weebpal header">d07a0071071630108c77f7fc7c1ed0b0</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-08-31 07:08:11</sys_created_on>
+        <sys_db_object display_value="" name="sp_widget">sp_widget</sys_db_object>
+        <sys_id>45920640529c42f09ca9d0e0c856a504</sys_id>
+        <sys_metadata>590904fd07d230108c77f7fc7c1ed0c3</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Weebpal header</sys_name>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_scope_delete display_value="">4a57d957d04840b7be5392ebaf077171</sys_scope_delete>
+        <sys_update_name>sp_widget_590904fd07d230108c77f7fc7c1ed0c3</sys_update_name>
+        <sys_update_version display_value="sp_widget_590904fd07d230108c77f7fc7c1ed0c3">b92988fd07d230108c77f7fc7c1ed02a</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-08-31 07:08:11</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

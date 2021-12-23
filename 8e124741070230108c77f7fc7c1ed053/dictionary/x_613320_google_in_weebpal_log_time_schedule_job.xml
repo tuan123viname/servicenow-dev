@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Weebpal Log Time Schedule job" max_length="40" name="x_613320_google_in_weebpal_log_time_schedule_job" sizeclass="1" type="collection">
+        <element label="Name" max_length="100" name="name" type="string_full_utf8"/>
+        <element label="Status" max_length="40" name="status" type="string"/>
+    </element>
+</database>

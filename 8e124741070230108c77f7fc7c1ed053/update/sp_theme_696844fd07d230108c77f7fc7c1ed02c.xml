@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_theme">
+    <sp_theme action="INSERT_OR_UPDATE">
+        <css_variables/>
+        <footer/>
+        <footer_fixed>true</footer_fixed>
+        <header display_value="Weebpal header">82dcc8b1071630108c77f7fc7c1ed0f0</header>
+        <name>Weebpal Theme</name>
+        <navbar_fixed>true</navbar_fixed>
+        <sys_class_name>sp_theme</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-08-31 06:59:34</sys_created_on>
+        <sys_id>696844fd07d230108c77f7fc7c1ed02c</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Weebpal Theme</sys_name>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_update_name>sp_theme_696844fd07d230108c77f7fc7c1ed02c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-08-31 07:19:06</sys_updated_on>
+    </sp_theme>
+</record_update>

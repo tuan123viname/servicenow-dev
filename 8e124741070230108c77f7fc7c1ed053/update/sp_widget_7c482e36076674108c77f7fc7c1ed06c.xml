@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($scope,spModal) {
+  /* widget controller */
+  var c = this;
+  $scope.parent = 'xxx';
+//   c.onOpen = function() {
+//     //ask the user for a string
+//     spModal.open({
+//         title: 'Give me a name',
+//         message: 'What would you like to name it?',
+//         input: true,
+//         value: c.name
+//     }).then(function(name) {
+//         c.name = name;
+//     })
+// };
+// c.onAgree = function() {
+//   // ask the user for a string
+//   // note embedded html in message
+//   var h = '<h4>Apple likes people to agree to lots of stuff</h4>'
+//   // Line feeds added to the following lines for presentation formatting.
+//   var m = 'Your use of Apple software or hardware products is based on the software license and other terms and conditions in effect for the product at the time of purchase. Your agreement to these terms is required to install or use the product. '
+//   spModal.open({
+//       title: 'Do you agree?',
+//       message: h + m,
+//       buttons: [
+//           {label:'✘ ${No}', cancel: true},
+//           {label:'✔ ${Yes}', primary: true}
+//       ]
+//   }).then(function() {
+//       c.agree = 'yes';
+//   }, function() {
+//       c.agree = 'no';
+//   })
+// }
+
+
+// c.onWidget = function(widgetId, widgetInput) {
+//   spModal.open({
+//       title: 'Displaying widget ' + widgetId,
+//       widget: widgetId, 
+//       widgetInput: widgetInput || {}
+//   }).then(function(){
+//       console.log('widget dismissed');
+//   })      
+// }
+
+
+ 
+  $(document).ready(function(){
+    $('.open_model').click(function(){
+      
+      $('.hop_thoai').addClass('show');
+      $('.nen_mo').addClass('show');
+    });
+    
+    $('.btn_close').click(function(){
+      
+      $('.hop_thoai').removeClass('show');
+      $('.nen_mo').removeClass('show');
+    });
+
+    $('.nen_mo').click(function(){
+      $('.hop_thoai').removeClass('show');
+      $('.nen_mo').removeClass('show');
+    });
+
+    c.createProject = function(){
+    
+      console.log($scope.parent);
+      c.server.get({
+        action : 'create_project',
+        formData : {
+          parent : $scope.parent,
+        }
+      })
+      .then(function(res) {
+        console.log('create project success');
+        $('.hop_thoai').removeClass('show');
+        $('.nen_mo').removeClass('show');
+      });
+    };
+
+  });
+  
+  
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>weebpal logtime list</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-16 07:27:20</sys_created_on>
+        <sys_id>7c482e36076674108c77f7fc7c1ed06c</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>weebpal logtime list</sys_name>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_update_name>sp_widget_7c482e36076674108c77f7fc7c1ed06c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-17 06:50:13</sys_updated_on>
+        <template><![CDATA[<div>
+<!-- your widget template -->
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Number</th>
+            <th>Parent</th>
+            <th>Project</th>
+            <th>Spent Time</th>
+            <th>Status</th>
+            <td>{{item.number}}</td>
+            <td>{{item.number}}</td>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in c.data.weebpalLogtime | limitTo:7">
+            <td>{{item.number}}</td>
+            <td>{{item.parent}}</td>
+            <td>{{item.project}}</td>
+            <td>{{item.spenttime}}</td>
+            <td>{{item.status}}</td>
+        </tr>
+    </tbody>
+</table>
+<div class="node">
+    <button class="open_model">Open</button>
+    
+</div>
+<div class="nen_mo">
+</div>
+<div class="hop_thoai">
+    <div class="header">
+        thông tin logtime
+    </div>
+    <hr>
+    <div class="noidung">
+        <div class="conten">
+        <label for=""class="form-controll">Parent: </label> <br> <input ng-model="parent" type="text" class="form-controll"> <br> 
+        <label for=""class="form-controll">Project: </label> <br> <input type="text"class="form-controll" > <br>
+        <label for=""class="form-controll">spenttime: </label> <br> <input type="text" class="form-controll" > <br>   
+        <button ng-click="c.createProject()" class="btn_close">dong</button>
+    </div>        
+    </div>
+</div>
+<!--//////////////////////////////////////////////////////-->
+<button ng-click="c.onOpen()" class="btn btn-default">
+    Prompt with label
+  </button>
+  <div ng-show="c.name">
+    You answered <span>{{c.name}}</span>
+  </div>
+
+  <!--//////////////////////////////////////////////////////-->
+
+  <button ng-click="c.onAgree()" class="btn btn-default">
+    Agree
+  </button>
+  <div ng-show="c.agree">
+    You answered {{c.agree}}
+  </div>
+
+  <!--//////////////////////////////////////////////////////////-->
+
+  <button ng-click="c.onWidget('widget-cool-clock')" class="btn btn-default">
+    Cool Clock
+  </button>
+</div>]]></template>
+    </sp_widget>
+</record_update>

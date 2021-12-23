@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="u_tã_nh_hã_nh__o_chá__n_váº_y" label="TÃ¬nh hÃ¬nh task cho ngÃ y hÃ´m sau Ai tháº¥y sao chá»�n váº­y" language="en" table="x_613320_google_in_weebpal_log_time_staging">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>u_tã_nh_hã_nh__o_chá__n_váº_y</element>
+            <help/>
+            <hint/>
+            <label>TÃ¬nh hÃ¬nh task cho ngÃ y hÃ´m sau Ai tháº¥y sao chá»�n váº­y</label>
+            <language>en</language>
+            <name>x_613320_google_in_weebpal_log_time_staging</name>
+            <plural>TÃ¬nh hÃ¬nh task cho ngÃ y hÃ´m sau Ai tháº¥y sao chá»�n váº­ys</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2021-08-24 04:14:14</sys_created_on>
+            <sys_id>848fd7df07ce30108c77f7fc7c1ed0d9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>TÃ¬nh hÃ¬nh task cho ngÃ y hÃ´m sau Ai tháº¥y sao chá»�n váº­y</sys_name>
+            <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+            <sys_update_name>sys_documentation_x_613320_google_in_weebpal_log_time_staging_u_tã_nh_hã_nh__o_chá__n_váº_y_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2021-08-24 04:14:14</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

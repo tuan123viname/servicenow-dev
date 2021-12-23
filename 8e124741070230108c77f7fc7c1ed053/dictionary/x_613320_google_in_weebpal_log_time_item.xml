@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Weebpal Log Time Item" max_length="40" name="x_613320_google_in_weebpal_log_time_item" sizeclass="905" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="Comment" max_length="255" name="comment" type="string_full_utf8"/>
+        <element label="Number" max_length="40" name="number" type="integer"/>
+        <element attributes="encode_utf8=false" label="Parent" max_length="32" name="parent" reference="x_613320_google_in_weebpal_log_time" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Project" max_length="40" name="project" type="string"/>
+        <element choice="3" default="0" label="Spent time" max_length="40" name="spent_time" type="float">
+            <choice>
+                <element inactive_on_update="false" label="0.5" value="0.5"/>
+                <element inactive_on_update="false" label="1" value="1"/>
+                <element inactive_on_update="false" label="1.5" value="1.5"/>
+                <element inactive_on_update="false" label="2" value="2"/>
+                <element inactive_on_update="false" label="2.5" value="2.5"/>
+                <element inactive_on_update="false" label="3" value="3"/>
+                <element inactive_on_update="false" label="3.5" value="3.5"/>
+                <element inactive_on_update="false" label="4" value="4"/>
+                <element inactive_on_update="false" label="4.5" value="4.5"/>
+                <element inactive_on_update="false" label="5" value="5"/>
+                <element inactive_on_update="false" label="5.5" value="5.5"/>
+                <element inactive_on_update="false" label="6" value="6"/>
+                <element inactive_on_update="false" label="6.5" value="6.5"/>
+                <element inactive_on_update="false" label="7" value="7"/>
+                <element inactive_on_update="false" label="7.5" value="7.5"/>
+                <element inactive_on_update="false" label="8" value="8"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" choice="3" default="completed" label="Status" max_length="40" name="status" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Completed" sequence="0" value="completed"/>
+                <element inactive_on_update="false" label="On going" sequence="1" value="on_going"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Task link" max_length="500" name="task_link" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Task title" max_length="200" name="task_title" type="string"/>
+        <index name="index">
+            <element name="parent"/>
+        </index>
+    </element>
+</database>

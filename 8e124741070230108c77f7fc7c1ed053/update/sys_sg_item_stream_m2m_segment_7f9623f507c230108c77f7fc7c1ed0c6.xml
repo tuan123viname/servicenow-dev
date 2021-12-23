@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_item_stream_m2m_segment">
+    <sys_sg_item_stream_m2m_segment action="INSERT_OR_UPDATE">
+        <item_stream display_value="Weebpal log Time Item Stream">279623f507c230108c77f7fc7c1ed0a6</item_stream>
+        <segment display_value="Item Stream Segment">779623f507c230108c77f7fc7c1ed0c4</segment>
+        <sys_class_name>sys_sg_item_stream_m2m_segment</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-08-19 12:54:28</sys_created_on>
+        <sys_id>7f9623f507c230108c77f7fc7c1ed0c6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_update_name>sys_sg_item_stream_m2m_segment_7f9623f507c230108c77f7fc7c1ed0c6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-08-19 12:54:28</sys_updated_on>
+    </sys_sg_item_stream_m2m_segment>
+</record_update>

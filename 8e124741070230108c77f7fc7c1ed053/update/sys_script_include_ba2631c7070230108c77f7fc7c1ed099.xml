@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_613320_google_in.GoogleAPIUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>GoogleAPIUtils</name>
+        <script><![CDATA[var GoogleAPIUtils = Class.create();
+GoogleAPIUtils.prototype = {
+    initialize: function() {
+    },
+    getSheets : function(spreadsheet_id) {
+      if (!spreadsheet_id) {
+        spreadsheet_id = '17ImoqUVI3aSleZycgcs2AKYbD5Gi6T8DyiXNNNurWBM';
+      }
+      var token = this.getAccessToken();
+      var request = new sn_ws.RESTMessageV2('Spreadsheet API', 'Get CSV files');
+      request.setHttpMethod('GET');
+      request.setRequestHeader('Content-Type', 'application/json');
+      request.setRequestHeader('Authorization', "Bearer " + token);
+      request.setStringParameterNoEscape('spread_sheet_id', spreadsheet_id);
+      var response = request.execute();
+      var sheets = JSON.parse(response.getBody())['sheets'];
+      this.saveSheets(sheets);
+      return sheets;
+    },
+    getAccessToken : function() {
+      var GR_token_track = new GlideRecord('x_613320_google_in_token_track');
+      var token = "";
+      GR_token_track.query();
+      if (GR_token_track.next()) {
+        token = GR_token_track.getValue('access_token');
+      }
+      return token;
+    },
+    saveSheets : function(sheets) {
+      sheets.forEach(function(item) {
+        if (item.properties) {
+          var gr = new GlideRecord('x_613320_google_in_import_sheet_track');
+          gr.addQuery('sheet_id', item['properties']['sheetId']);
+          gr.addQuery('status', 'imported');
+          gr.query();
+          if (!gr.next()) {
+            gr.initialize();
+            gr.sheet_id = item['properties']['sheetId'];
+            gr.index = item['properties']['index'];
+            gr.sheet_type = item['properties']['sheetType'];
+            gr.title = item['properties']['title'];
+            gr.status = 'open';
+            gr.insert();
+          }
+        }
+       
+      })
+    },
+    downloadCSVFile : function(sheet_id, sys_id) {
+      var newAttachmentSysId = "";
+      var token = this.getAccessToken();
+      var request = new sn_ws.RESTMessageV2();
+      request.setEndpoint('https://docs.google.com/spreadsheets/d/17ImoqUVI3aSleZycgcs2AKYbD5Gi6T8DyiXNNNurWBM/export?format=xlsx&id=17ImoqUVI3aSleZycgcs2AKYbD5Gi6T8DyiXNNNurWBM&gid=' + sheet_id);
+      request.setHttpMethod('GET');
+      request.setRequestHeader('Content-Type', 'application/json');
+      // request.setQueryParameter('mimeType', "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+      request.setRequestHeader('Authorization', "Bearer " + token);
+      request.saveResponseBodyAsAttachment('x_613320_google_in_import_sheet_track', sys_id, sheet_id + '.xlsx');
+      var response = request.execute();
+      newAttachmentSysId= response.getResponseAttachmentSysid();
+      gs.info('status : ' + response.getStatusCode());
+      return newAttachmentSysId;
+    },
+    runImportData : function(attach_sys_id, title, sheet_id) {
+      var error = "";
+      var ExcelParser = new sn_impex.GlideExcelParser();
+      var attachment = new GlideSysAttachment();
+      var attachmentStream = attachment.getContentStream(attach_sys_id);
+      ExcelParser.parse(attachmentStream);
+
+      var row = '';
+      var name = null;
+      var prevName = null;
+      var parent = null;
+      try {
+        var index = 0;
+        var count = 0;
+        while(ExcelParser.next()) {
+          index++;
+          if (index == 1) continue;
+
+          if (count > 100) {
+            error = 'Sheet is empty';
+            break;
+          }
+
+          row = ExcelParser.getRow();
+          if (!row['Number'] || !row['Task title']) {
+            count++;
+            continue;
+          }
+
+          if (row['Name']) {
+            name = row['Name'];
+          }
+          row['Name'] = name;
+
+          if (prevName != name) {
+            parent = this.saveWeebpalLogTime(row, title);
+          }
+          this.saveWeebpalLogItemData(row, parent);
+
+          prevName = name;
+        }
+        gs.info('sheet title' + title);
+        gs.info('count: ' + count);
+      }
+      catch(ex) {
+        error = ex;
+      }
+     
+      return error;
+    },
+    saveWeebpalLogTime : function(row, title) {
+      var gr = new GlideRecord('x_613320_google_in_weebpal_log_time');
+      gr.initialize();
+      gr.name = row['Name'];
+      gr.task_status = row['Tình hình task cho ngày hôm sau'];
+      gr.sheet_title = title;
+      gr.insert();
+      return gr.getUniqueValue();
+    },
+    saveWeebpalLogItemData : function(row, parent) {
+      var gr = new GlideRecord('x_613320_google_in_weebpal_log_time_item');
+      gr.initialize();
+      gr.number = row['Number'];
+      gr.project = row['Project'] ? row['Project'] : row['Project/Type'];
+      gr.task_title = row['Task title'];
+      gr.task_link = row['Task link (nếu có)'];
+      gr.spent_time = row['Spent time today (h)'];
+      gr.status = row['Status'];
+      gr.comment = row['Ghi chú thêm (nếu cần)'];
+      gr.parent = parent;
+      gr.insert();
+    },
+    type: 'GoogleAPIUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-08-23 01:57:50</sys_created_on>
+        <sys_id>ba2631c7070230108c77f7fc7c1ed099</sys_id>
+        <sys_mod_count>47</sys_mod_count>
+        <sys_name>GoogleAPIUtils</sys_name>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_update_name>sys_script_include_ba2631c7070230108c77f7fc7c1ed099</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-08-31 09:52:50</sys_updated_on>
+    </sys_script_include>
+</record_update>

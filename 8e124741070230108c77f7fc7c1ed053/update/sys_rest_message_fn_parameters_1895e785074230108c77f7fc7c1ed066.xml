@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters">
+    <sys_rest_message_fn_parameters action="INSERT_OR_UPDATE">
+        <name>refresh_token</name>
+        <rest_message_function display_value="Refresh token">90832745074230108c77f7fc7c1ed070</rest_message_function>
+        <sys_class_name>sys_rest_message_fn_parameters</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-08-17 04:54:25</sys_created_on>
+        <sys_id>1895e785074230108c77f7fc7c1ed066</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>refresh_token</sys_name>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_update_name>sys_rest_message_fn_parameters_1895e785074230108c77f7fc7c1ed066</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-08-17 07:32:24</sys_updated_on>
+        <type>string</type>
+        <value>1//06nq5JglXKYx0CgYIARAAGAYSNwF-L9Ir8_4OEdGvzXpLz-5SBwt4hVh3HAWHxzz_hFzs-o91XSocYAr5rjueiblFt-wT3H2FrSQ</value>
+    </sys_rest_message_fn_parameters>
+</record_update>

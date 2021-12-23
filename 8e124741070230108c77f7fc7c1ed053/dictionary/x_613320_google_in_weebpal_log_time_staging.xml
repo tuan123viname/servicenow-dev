@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="sys_import_set_row" label="Weebpal Log Time Staging" max_length="40" name="x_613320_google_in_weebpal_log_time_staging" sizeclass="0" type="collection">
+        <element attributes="edge_encryption_enabled=true" label="Ghi chÃº thÃªm (náº¿u cáº§n) Ai muá»‘n comment thÃªm gÃ¬ cá»© comment" max_length="40" name="u_ghi_chãº_thã___cá___comment" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Ghi chÃº thÃªm (náº¿u cáº§n)" max_length="40" name="u_ghi_chãº_thãªm__náº_u_cáº_n_" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Ghi chú thêm (nếu cần)" max_length="40" name="u_ghi_chú_thêm__nếu_cần_" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Name" max_length="40" name="u_name" type="string_full_utf8"/>
+        <element attributes="edge_encryption_enabled=true" label="Number" max_length="40" name="u_number" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Project" max_length="40" name="u_project" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Project/Type" max_length="40" name="u_project_type" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Spent time today (h)" max_length="40" name="u_spent_time_today__h_" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Spent time today (h) HÃ´m nay mÃ¬nh tá»‘n bao nhiÃªu time thÃ¬ log thÃ´i" max_length="40" name="u_spent_time_t_thã__log_thã_i" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Status" max_length="40" name="u_status" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Status Task Ä‘Ã£ done hay chÆ°a" max_length="40" name="u_status_task__done_hay_chæ_a" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Task link (náº¿u cÃ³)" max_length="40" name="u_task_link__náº_u_cã__" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Task link (nếu có)" max_length="40" name="u_task_link__nếu_có_" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Task link (náº¿u cÃ³) Jira, Clickup, ..." max_length="40" name="u_task_link__n___clickup_____" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Task title" max_length="40" name="u_task_title" type="string_full_utf8"/>
+        <element attributes="edge_encryption_enabled=true" label="Task title Copy trong task subject hoáº·c viáº¿t tÃ³m táº¯t ná»™i dung task náº¿" max_length="40" name="u_task_title_c_hã_ng_cã__link" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="TÃ¬nh hÃ¬nh task cho ngÃ y hÃ´m sau" max_length="40" name="u_tã_nh_hã_nh__ngã_y_hã_m_sau" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="TÃ¬nh hÃ¬nh task cho ngÃ y hÃ´m sau Ai tháº¥y sao chá»�n váº­y" max_length="40" name="u_tã_nh_hã_nh__o_chá__n_váº_y" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="Tình hình task cho ngày hôm sau" max_length="40" name="u_tình_hình_ta_o_ngày_hôm_sau" type="string"/>
+        <element attributes="edge_encryption_enabled=true" label="#" max_length="40" name="u__" type="string"/>
+    </element>
+</database>

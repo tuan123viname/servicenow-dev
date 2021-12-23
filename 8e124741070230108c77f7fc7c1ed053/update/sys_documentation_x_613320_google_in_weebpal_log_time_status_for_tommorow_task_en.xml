@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="status_for_tommorow_task" label="status for tommorow tasks" language="en" table="x_613320_google_in_weebpal_log_time">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>status_for_tommorow_task</element>
+            <help/>
+            <hint/>
+            <label>status for tommorow tasks</label>
+            <language>en</language>
+            <name>x_613320_google_in_weebpal_log_time</name>
+            <plural>status for tommorow tasks</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2021-10-26 05:00:51</sys_created_on>
+            <sys_id>4d5684bb075330108c77f7fc7c1ed04b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>status for tommorow tasks</sys_name>
+            <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+            <sys_update_name>sys_documentation_x_613320_google_in_weebpal_log_time_status_for_tommorow_task_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2021-10-26 05:00:51</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

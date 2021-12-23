@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="u_tình_hình_ta_o_ngày_hôm_sau" label="Tình hình task cho ngày hôm sau" language="en" table="x_613320_google_in_weebpal_log_time_staging">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>u_tình_hình_ta_o_ngày_hôm_sau</element>
+            <help/>
+            <hint/>
+            <label>Tình hình task cho ngày hôm sau</label>
+            <language>en</language>
+            <name>x_613320_google_in_weebpal_log_time_staging</name>
+            <plural>Tình hình task cho ngày hôm saus</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2021-08-17 10:33:58</sys_created_on>
+            <sys_id>56433cd9070630108c77f7fc7c1ed075</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Tình hình task cho ngày hôm sau</sys_name>
+            <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+            <sys_update_name>sys_documentation_x_613320_google_in_weebpal_log_time_staging_u_tình_hình_ta_o_ngày_hôm_sau_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2021-08-17 10:33:58</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

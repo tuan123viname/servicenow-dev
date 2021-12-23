@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container">
+    <sp_container action="DELETE">
+        <background_color/>
+        <background_image/>
+        <background_style>default</background_style>
+        <bootstrap_alt>false</bootstrap_alt>
+        <class_name/>
+        <container_class_name/>
+        <name>Portal Meum Homepage - Container 1</name>
+        <order>1</order>
+        <sp_page display_value="portal_meum_homepage">e12df7cb07e2b4108c77f7fc7c1ed047</sp_page>
+        <subheader>false</subheader>
+        <sys_class_name>sp_container</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-17 08:16:41</sys_created_on>
+        <sys_id>e12db78f07e2b4108c77f7fc7c1ed039</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Portal Meum Homepage - Container 1</sys_name>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_update_name>sp_container_e12db78f07e2b4108c77f7fc7c1ed039</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-17 08:16:41</sys_updated_on>
+        <title/>
+        <width>container</width>
+    </sp_container>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Google integration">8e124741070230108c77f7fc7c1ed053</application>
+        <file_path/>
+        <instance_id>00042fcddb279708ff27d5b0cf961918</instance_id>
+        <instance_name>dev67130</instance_name>
+        <name>sp_container_e12db78f07e2b4108c77f7fc7c1ed039</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_container"><sp_container action="INSERT_OR_UPDATE"><background_color/><background_image/><background_style>default</background_style><bootstrap_alt>false</bootstrap_alt><class_name/><container_class_name/><name>Portal Meum Homepage - Container 1</name><order>1</order><sp_page display_value="portal_meum_homepage">e12df7cb07e2b4108c77f7fc7c1ed047</sp_page><subheader>false</subheader><sys_class_name>sp_container</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2021-09-17 08:16:41</sys_created_on><sys_id>e12db78f07e2b4108c77f7fc7c1ed039</sys_id><sys_mod_count>0</sys_mod_count><sys_name>Portal Meum Homepage - Container 1</sys_name><sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package><sys_policy/><sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope><sys_update_name>sp_container_e12db78f07e2b4108c77f7fc7c1ed039</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2021-09-17 08:16:41</sys_updated_on><title/><width>container</width></sp_container></record_update>]]></payload>
+        <payload_hash>38783463</payload_hash>
+        <record_name>Portal Meum Homepage - Container 1</record_name>
+        <reverted_from/>
+        <source>45c26fb107c230108c77f7fc7c1ed0f8</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-17 08:16:41</sys_created_on>
+        <sys_id>b92db78f07e2b4108c77f7fc7c1ed03b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17bf2d441eb0000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-17 08:16:41</sys_updated_on>
+        <type>Container</type>
+        <update_guid>f12db78fdae2b41078e474baabaa433b</update_guid>
+        <update_guid_history>f12db78fdae2b41078e474baabaa433b:38783463</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Portal Meum Homepage - Container 1">199d7f8f07e2b4108c77f7fc7c1ed0b1</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-17 08:18:34</sys_created_on>
+        <sys_db_object display_value="" name="sp_container">sp_container</sys_db_object>
+        <sys_id>687fbd324d164e879f9f959c96bf0041</sys_id>
+        <sys_metadata>e12db78f07e2b4108c77f7fc7c1ed039</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Portal Meum Homepage - Container 1</sys_name>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_scope_delete display_value="">4a57d957d04840b7be5392ebaf077171</sys_scope_delete>
+        <sys_update_name>sp_container_e12db78f07e2b4108c77f7fc7c1ed039</sys_update_name>
+        <sys_update_version display_value="sp_container_e12db78f07e2b4108c77f7fc7c1ed039">b92db78f07e2b4108c77f7fc7c1ed03b</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-17 08:18:34</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

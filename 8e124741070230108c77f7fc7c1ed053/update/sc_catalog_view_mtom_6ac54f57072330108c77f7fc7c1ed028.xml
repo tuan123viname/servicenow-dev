@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sc_catalog_view_mtom">
+    <sc_catalog_view_mtom action="INSERT_OR_UPDATE">
+        <default>true</default>
+        <sc_catalog display_value="Google intergration">99a58b57072330108c77f7fc7c1ed049</sc_catalog>
+        <sys_class_name>sc_catalog_view_mtom</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-11-06 15:56:06</sys_created_on>
+        <sys_id>6ac54f57072330108c77f7fc7c1ed028</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Google intergration.catalog_google_intergration</sys_name>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_policy/>
+        <sys_portal_page display_value="catalog_google_intergration">62c54f57072330108c77f7fc7c1ed027</sys_portal_page>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_update_name>sc_catalog_view_mtom_6ac54f57072330108c77f7fc7c1ed028</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-11-06 15:56:06</sys_updated_on>
+    </sc_catalog_view_mtom>
+</record_update>
