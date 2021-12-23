@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="DELETE">
+        <name>taskDead</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(/* GlideRecord */ current, /* TemplatePrinter */ template,
+          /* Optional EmailOutbound */ email, /* Optional GlideRecord */ email_action,
+          /* Optional GlideRecord */ event) {
+
+          // Add your code here
+	template.print(event.parm1);
+	template.print("oooooo");
+	var data = JSON.parse(event.parm1);
+// 	gs.info(event.parm1);
+// 	gs.info('email script okokoko');
+	template.print(event.parm1);
+
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-15 05:08:59</sys_created_on>
+        <sys_id>c7be3c6a076634108c77f7fc7c1ed0ae</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>taskDead</sys_name>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_update_name>sys_script_email_c7be3c6a076634108c77f7fc7c1ed0ae</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-15 05:26:19</sys_updated_on>
+    </sys_script_email>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Google integration">8e124741070230108c77f7fc7c1ed053</application>
+        <file_path/>
+        <instance_id>00042fcddb279708ff27d5b0cf961918</instance_id>
+        <instance_name>dev67130</instance_name>
+        <name>sys_script_email_c7be3c6a076634108c77f7fc7c1ed0ae</name>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_script_email"&gt;&lt;sys_script_email action="INSERT_OR_UPDATE"&gt;&lt;name&gt;taskDead&lt;/name&gt;&lt;new_lines_to_html&gt;false&lt;/new_lines_to_html&gt;&lt;script&gt;&lt;![CDATA[(function runMailScript(/* GlideRecord */ current, /* TemplatePrinter */ template,
+          /* Optional EmailOutbound */ email, /* Optional GlideRecord */ email_action,
+          /* Optional GlideRecord */ event) {
+
+          // Add your code here
+	template.print(event.parm1);
+	template.print("oooooo");
+	var data = JSON.parse(event.parm1);
+// 	gs.info(event.parm1);
+// 	gs.info('email script okokoko');
+	template.print(event.parm1);
+
+})(current, template, email, email_action, event);]]&gt;&lt;/script&gt;&lt;sys_class_name&gt;sys_script_email&lt;/sys_class_name&gt;&lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2021-09-15 05:08:59&lt;/sys_created_on&gt;&lt;sys_id&gt;c7be3c6a076634108c77f7fc7c1ed0ae&lt;/sys_id&gt;&lt;sys_mod_count&gt;3&lt;/sys_mod_count&gt;&lt;sys_name&gt;taskDead&lt;/sys_name&gt;&lt;sys_package display_value="Google integration" source="x_613320_google_in"&gt;8e124741070230108c77f7fc7c1ed053&lt;/sys_package&gt;&lt;sys_policy/&gt;&lt;sys_scope display_value="Google integration"&gt;8e124741070230108c77f7fc7c1ed053&lt;/sys_scope&gt;&lt;sys_update_name&gt;sys_script_email_c7be3c6a076634108c77f7fc7c1ed0ae&lt;/sys_update_name&gt;&lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2021-09-15 05:26:19&lt;/sys_updated_on&gt;&lt;/sys_script_email&gt;&lt;/record_update&gt;</payload>
+        <payload_hash>-1301096580</payload_hash>
+        <record_name>taskDead</record_name>
+        <reverted_from/>
+        <source>45c26fb107c230108c77f7fc7c1ed0f8</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-15 05:26:19</sys_created_on>
+        <sys_id>26f2092e076634108c77f7fc7c1ed01b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17be7eb8eb00000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-15 05:26:19</sys_updated_on>
+        <type>Email Script</type>
+        <update_guid>6ef2092e11663410bae52978e5879f1a</update_guid>
+        <update_guid_history>6ef2092e11663410bae52978e5879f1a:-1301096580,4f414daa2166341026c021746a54872a:-11211251,b33f70aa2b663410a0081cc7b7f53b73:1856047987,e00fbc6acd6634106b32642d330cab20:-270272524</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-15 05:29:03</sys_created_on>
+        <sys_db_object display_value="" name="sys_script_email">sys_script_email</sys_db_object>
+        <sys_id>7abf0b18e0074dfeac04a679ddf54ee4</sys_id>
+        <sys_metadata>c7be3c6a076634108c77f7fc7c1ed0ae</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>taskDead</sys_name>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_scope_delete display_value="">4a57d957d04840b7be5392ebaf077171</sys_scope_delete>
+        <sys_update_name>sys_script_email_c7be3c6a076634108c77f7fc7c1ed0ae</sys_update_name>
+        <sys_update_version display_value="sys_script_email_c7be3c6a076634108c77f7fc7c1ed0ae">26f2092e076634108c77f7fc7c1ed01b</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-15 05:29:03</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

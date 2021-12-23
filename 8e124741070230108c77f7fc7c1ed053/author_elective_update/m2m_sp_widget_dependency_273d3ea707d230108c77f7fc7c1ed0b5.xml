@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_widget_dependency">
+    <m2m_sp_widget_dependency action="DELETE">
+        <sp_dependency display_value="angular-truncate">09e1f1416712220023c82e08f585ef1e</sp_dependency>
+        <sp_widget display_value="Copy of Header Menu">ef3d3ea707d230108c77f7fc7c1ed0b2</sp_widget>
+        <sys_class_name>m2m_sp_widget_dependency</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-06 06:38:45</sys_created_on>
+        <sys_id>273d3ea707d230108c77f7fc7c1ed0b5</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>angular-truncate.Copy of Header Menu</sys_name>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_update_name>m2m_sp_widget_dependency_273d3ea707d230108c77f7fc7c1ed0b5</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-06 06:38:45</sys_updated_on>
+    </m2m_sp_widget_dependency>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Google integration">8e124741070230108c77f7fc7c1ed053</application>
+        <file_path/>
+        <instance_id>00042fcddb279708ff27d5b0cf961918</instance_id>
+        <instance_name>dev67130</instance_name>
+        <name>m2m_sp_widget_dependency_273d3ea707d230108c77f7fc7c1ed0b5</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="m2m_sp_widget_dependency"><m2m_sp_widget_dependency action="INSERT_OR_UPDATE"><sp_dependency display_value="angular-truncate">09e1f1416712220023c82e08f585ef1e</sp_dependency><sp_widget display_value="Copy of Header Menu">ef3d3ea707d230108c77f7fc7c1ed0b2</sp_widget><sys_class_name>m2m_sp_widget_dependency</sys_class_name><sys_created_by>admin</sys_created_by><sys_created_on>2021-09-06 06:38:45</sys_created_on><sys_id>273d3ea707d230108c77f7fc7c1ed0b5</sys_id><sys_mod_count>0</sys_mod_count><sys_name>angular-truncate.Copy of Header Menu</sys_name><sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package><sys_policy/><sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope><sys_update_name>m2m_sp_widget_dependency_273d3ea707d230108c77f7fc7c1ed0b5</sys_update_name><sys_updated_by>admin</sys_updated_by><sys_updated_on>2021-09-06 06:38:45</sys_updated_on></m2m_sp_widget_dependency></record_update>]]></payload>
+        <payload_hash>-463931213</payload_hash>
+        <record_name>angular-truncate.Copy of Header Menu</record_name>
+        <reverted_from/>
+        <source>45c26fb107c230108c77f7fc7c1ed0f8</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-06 06:38:45</sys_created_on>
+        <sys_id>bf3d3ea707d230108c77f7fc7c1ed0b7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>17bb9d4a1610000001</sys_recorded_at>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-06 06:38:45</sys_updated_on>
+        <type>Widget Dependency</type>
+        <update_guid>f73d3ea70ad23010a60802341986c9b7</update_guid>
+        <update_guid_history>f73d3ea70ad23010a60802341986c9b7:-463931213</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="angular-truncate.Copy of Header Menu">7a7d32e707d230108c77f7fc7c1ed029</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-06 06:39:46</sys_created_on>
+        <sys_db_object display_value="" name="m2m_sp_widget_dependency">m2m_sp_widget_dependency</sys_db_object>
+        <sys_id>3a6dae4b2b2845e29308dedd6d5fc441</sys_id>
+        <sys_metadata>273d3ea707d230108c77f7fc7c1ed0b5</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>angular-truncate.Copy of Header Menu</sys_name>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_scope_delete display_value="">4a57d957d04840b7be5392ebaf077171</sys_scope_delete>
+        <sys_update_name>m2m_sp_widget_dependency_273d3ea707d230108c77f7fc7c1ed0b5</sys_update_name>
+        <sys_update_version display_value="m2m_sp_widget_dependency_273d3ea707d230108c77f7fc7c1ed0b5">bf3d3ea707d230108c77f7fc7c1ed0b7</sys_update_version>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-06 06:39:46</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -1,0 +1,663 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($scope,$window,$uibModal) {
+	/* widget controller */
+	var c = this;
+	
+	c.pageSize = 1;
+	c.curPage = 0;
+	c.itemsPerPageOptions = [10,20,30,40,50,100];
+	c.itemsPerPage = c.itemsPerPageOptions[0];
+	c.sortedOn = 'id';
+	c.sortReverse = true;
+	c.isId = false;
+	c.state = false;
+	c.isProj = false;
+	c.isReq = false;
+	c.isCreated = false;
+	c.isStatus = false;
+	c.isItem = false;
+	c.isApprovals = false;
+	c.isTotal = false;
+	c.iscontract_name =false;
+	c.ispo_line = false;
+	c.isContract_Number=false;
+	c.selectAllFlag = false;
+	$scope.breadcrumbs='';
+	// console.log(c.data.details);
+	// console.log(c.data);
+
+	c.checkStatusBreadcrumbs=function(status, page)
+	{
+		if(page=='coupa_invoice_approval_list') {
+			if(status=='requested')
+			{
+				$scope.breadcrumbs='発注あり請求書承認待ち';
+			}
+			else if(status=='approved') {
+				$scope.breadcrumbs='発注あり請求書承認済み';
+			}
+			else if(status== 'rejected') {
+				$scope.breadcrumbs ='発注あり請求書否認済み';
+			}
+			else if(status == 'not_required') {
+				$scope.breadcrumbs ='発注あり請求書承認不要';
+			}
+			else if(status == 'all') {
+				$scope.breadcrumbs= ' 発注あり請求書承認一覧';
+			}
+		}
+		else {
+			if(status=='requested')
+			{
+				$scope.breadcrumbs='発注なし請求書承認待ち';
+			}
+			else if(status=='approved') {
+				$scope.breadcrumbs='発注なし請求書承認済み';
+			}
+			else if(status== 'rejected') {
+				$scope.breadcrumbs ='発注なし請求書否認済み';
+			}
+			else if(status == 'not_required') {
+				$scope.breadcrumbs =' 発注なし請求書承認不要';
+			}
+			else if(status == 'all') {
+				$scope.breadcrumbs= ' 発注なし請求書承認一覧';
+			}
+		}
+		
+		
+		return true;
+	}
+
+	c.checkDetails=function(req) {		
+		$window.location.href = '?id=' + c.data.detail_page_id + '&table=' + c.data.table + '&sys_id=' + req.sys_id + '&approval_sys_id=' + req.approval_sys_id+'&status=' +c.data.status +  '&page='+c.data.current_page;
+	}
+
+
+	c.goHome = function(){
+		$window.location.href="?id=" + c.data.home_page_id;
+	}
+
+
+	c.sortClick = function(name){ 
+		console.log(name);
+		c.sortedOn = name;
+		c.sortReverse=!c.sortReverse;
+		
+		if(name== 'id'){
+			c.isId= !c.isId; }
+		
+		if(name== 'state'){
+			c.state= !c.state; }		
+		
+		if(name== 'amount_include_tax'){
+			c.isTotal = !c.isTotal;  }
+
+		if(name== 'invoice_no'){
+			c.isProj = !c.isProj;  }
+
+		if(name== 'requested_by_fullname'){
+			c.isReq = !c.isReq;  }
+
+		if(name== 'created_at'){
+			c.isCreated= !c.isCreated;  }
+
+		if(name== 'status'){		
+			c.isStatus = !c.isStatus;  }
+
+		if(name== 'item'){
+			c.isItem = !c.isItem;  }  
+
+		if(name== 'approvals'){
+			c.isApprovals = !c.isApprovals;  
+		}
+		if(name == 'contract_name') {
+			c.iscontract_name = ! c.iscontract_name;
+		}
+		if(name == 'po_line') {
+			c.ispo_line = ! c.ispo_line;
+		}
+		if(name == 'contract_number') {
+			c.isContract_Number = !c.isContract_Number;
+		}
+
+		
+	}
+
+	c.redirect = function(status){
+		//var tem = 'pending_approvals'
+
+		if(status){
+		
+			$window.location.href = '?id='+ c.data.current_page +'&status=' + status;
+		}
+		else{
+			$window.location.href = '?id='+ c.data.current_page +'';
+		}
+
+	}
+
+	c.selectAll= function(){
+		//c.selectAllFlag  =!c.selectAllFlag;
+
+		for(var tempInt=0;tempInt<c.data.details.length; tempInt++){
+			c.data.details[tempInt].checked = c.selectAllFlag ;
+		}
+	}
+
+	/*c.pageSize = 1;
+	c.curPage = 0;
+	c.itemsPerPageOptions = [5,10,20,30,40,50,100];
+	c.itemsPerPage = c.itemsPerPageOptions[0];
+	c.sortedOn = 'number';
+	c.sortReverse = true;
+ */
+
+	//--->>>--->>>--->>>--->>>--->>>--->>>--->>>--->>>--->>>--->>>
+	// Modal start
+	//--->>>--->>>--->>>--->>>--->>>--->>>--->>>--->>>--->>>--->>>
+	c.openModal = function(action) {
+		c.action = action;
+		console.log("client script modal action"+action)
+		c.modalInstance = $uibModal.open({
+			templateUrl: 'modalTemplate',
+			//size: 'lg',
+			scope: $scope
+		});
+	}
+
+	c.closeModal = function() {
+		c.modalInstance.close();
+	}
+	//<<<---<<<---<<<---<<<---<<<---<<<---<<<---<<<---<<<---<<<---
+	// Modal end
+	//<<<---<<<---<<<---<<<---<<<---<<<---<<<---<<<---<<<---<<<---
+
+
+		/*$scope.data.bulkApprovalId= [];
+		$scope.data.bulkCoupaId= [];
+		$scope.selectedList = function (approval_sys_id,coupa_sys_id) {
+			//console.log(y);
+			//console.log("Length"+$scope.data.selection.length);	
+			if (approval_sys_id && coupa_sys_id ) {
+				var index = $scope.data.bulkApprovalId.indexOf(approval_sys_id);
+				if (index === -1) {
+					$scope.data.bulkApprovalId.push(approval_sys_id);
+					$scope.data.bulkCoupaId.push(coupa_sys_id);					
+					}else{
+				$scope.data.bulkApprovalId.splice(index, 1);
+				}
+			}
+	}*/
+	
+	//get the list of multiple approvers id
+	
+	
+	//For bulk approval
+	c.bulkApprove = function(){
+
+		c.closeModal()
+
+		c.bulkList = _.filter(c.data.details, 'checked');
+		c.approvalSysIDStr = _.map(c.bulkList, 'approval_sys_id').join(',');
+		c.sysIDStr = _.map(c.bulkList, 'sys_id').join(',');
+		c.server.get({
+			action: 'Approval_Action',
+			state: c.action=='Approve'?'approved':'rejected',
+			sysIDStr: c.sysIDStr,
+			approvalSysIDStr:c.approvalSysIDStr,
+			actionComment : c.approveCmmt			
+
+		}).then(function(r){
+			$window.location.reload();
+		});	
+
+	}
+	
+	/*
+		//For bulk reject
+		c.bulkReject = function(){
+		c.bulkList = _.filter(c.data.details, 'checked');
+		c.approvalSysIDStr = _.map(c.bulkList, 'approval_sys_id').join(',');
+		c.sysIDStr = _.map(c.bulkList, 'sys_id').join(',');
+		c.server.get({
+			action: 'reject',
+			sysIDStr: c.sysIDStr,
+			approvalSysIDStr:c.approvalSysIDStr,
+			actionComment : c.rejectCmmt			
+
+		}).then(function(r){
+			//$window.location.reload();
+
+		});	
+
+	}
+	
+	*/
+};
+]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>true</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>test list</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+	data.labelMappings = {
+		'requested' : '承認待ち',
+		'approved' : '承認済み',
+		'rejected' : '否認済み',
+		'not_required' : '承認不要'
+	};
+	data.approval_table = "sysapproval_approver";
+	data.table = "x_nriws_coupa_req_coupa_invoice";
+	data.userId = gs.getUserID();
+	data.status = $sp.getParameter("status") || 'all';
+	data.details = [];
+	data.approvals = [];
+	data.showCheckBox = false;
+
+	data.userIds = getRequesterIds(data.userId);
+	data.userIds.push(data.userId);
+	if(data.status=='requested'){
+		data.showCheckBox = true;
+	}
+	
+	data.current_page = $sp.getParameter('id');
+	
+	
+	//var isCoupaAppUser = gs.hasRole('x_nriws_coupa_req.requisition.user')
+	//gs.addInfoMessage(isCoupaAppUser);
+	
+	data.home_page_id='nrid_approval';
+	data.detail_page_id = "coupa_invoice_detail";
+	
+	//---------------------------------------------
+	// Get my approval request
+	//---------------------------------------------
+	
+	data.requested_count = 0;
+	data.approved_count = 0;
+	data.rejected_count = 0;
+	data.total_count = 0;
+	data.not_required_count =0;
+	
+	// var arApproval;
+	// arApproval = new GlideAggregate(data.approval_table);
+	// arApproval.addQuery('approver',data.userId);
+	// //arApproval.addQuery('source_table',data.table);
+
+	// arApproval.addQuery('sysapproval.sys_class_name',data.table);
+
+	// arApproval.groupBy('state');
+	// arApproval.addAggregate("COUNT");
+	// arApproval.query();
+	// while(arApproval.next()){
+
+	// 	var count =  Number( arApproval.getAggregate("COUNT"));
+	// 	data.total_count +=count;
+	// 	var state = arApproval.getValue('state');
+
+	// 	//gs.addInfoMessage(state);
+	// 	//gs.addInfoMessage(count);
+	// 	//gs.addInfoMessage("--------------------");
+	// 	switch(state){
+	// 		case 'requested':
+	// 			data.requested_count = count;
+	// 			break;
+	// 		case 'approved':
+	// 			data.approved_count = count;
+	// 			break;
+	// 		case 'rejected':
+	// 			data.rejected_count = count;
+	// 			break;
+	// 		case 'not_required':
+	// 			data.not_required_count = count;
+	// 			break;
+	// 		default:
+	// 			break;
+				
+	// 	}
+		
+	// }	
+	var ApprovalGR = new GlideRecord('sysapproval_approver');	
+	var grApproval;
+	grApproval = new GlideRecord(data.approval_table)
+	grApproval.addQuery('approver', 'IN', data.userIds.join(','));
+	grApproval.addQuery('sysapproval.sys_class_name',data.table);
+
+	//grApproval.addQuery('source_table',data.table);
+
+	// if(data.status && data.status !="all")
+	// {
+	// 	grApproval.addQuery('state',data.status);	
+	// }
+
+	grApproval.orderBy('sysapproval.number');
+	grApproval.query();
+	
+	while(grApproval.next()){
+		// data.total_count++;
+		var tempObj = {					
+			// Approval Request
+				
+			approval_sys_id: grApproval.getUniqueValue(),
+			approval_state: grApproval.getDisplayValue("state"),
+			approval_state_value: grApproval.getValue("state"),
+				
+				// Invoice Detail
+			sys_id : grApproval.sysapproval.toString(),
+			id :parseInt(grApproval.sysapproval.id.toString()),
+			status: grApproval.sysapproval.status.getDisplayValue(),		
+			invoice_no: grApproval.sysapproval.invoice_no.getDisplayValue(),	
+			state: grApproval.sysapproval.state.getDisplayValue(),
+			req_by: grApproval.sysapproval.requested_by_fullname.getDisplayValue(),
+			requested_by_id :grApproval.sysapproval.requested_by_id.getDisplayValue(),
+			po_line: grApproval.sysapproval.po_line.getDisplayValue(),
+			contract_name: grApproval.sysapproval.contract_name.getDisplayValue(),
+			amount_include_tax :grApproval.sysapproval.amount_include_tax.getDisplayValue(),
+			currency: grApproval.sysapproval.currency.getDisplayValue(),
+			created_at: grApproval.sysapproval.created_at.getDisplayValue().split(" ")[0],
+			created_at2: grApproval.sysapproval.created_at.toString(),
+			checked : false,
+				approvals : ''
+
+			};
+			var accounts_GR1 = new GlideRecord('x_nriws_coupa_req_invoice_account');
+			accounts_GR1.addQuery('parent',tempObj.sys_id);
+			
+			accounts_GR1.query();
+			while(accounts_GR1.next()){
+				if(accounts_GR1.getValue('consignment_contract_number')!='')
+				{
+					tempObj.consign_contract_number =accounts_GR1.getValue('consignment_contract_number');
+					break;
+				}else{
+					tempObj.consign_contract_number ='';
+				}
+			}
+			if(tempObj.consign_contract_number=='')
+			{
+				tempObj.consign_contract_number=grApproval.sysapproval.representation_contract_number.getDisplayValue();
+			}
+
+			var account_object = {};
+			var invoice_accounts = [];
+			var accounts_GR = new GlideRecord('x_nriws_coupa_req_invoice_account');
+			accounts_GR.addQuery('parent',tempObj.sys_id);
+			accounts_GR.query(); 
+			while(accounts_GR.next()){
+				account_object = {		
+					account_allocation_id : accounts_GR.getValue('account_allocation_id'),
+					account_allocation_amount : accounts_GR.getDisplayValue("account_allocation_amount"),
+					account_allocation_percent : accounts_GR.getValue("account_allocation_percent"),
+					
+					account_id : accounts_GR.getValue("account_id"),
+					account_name : accounts_GR.getValue("account_name"),
+					account_type : accounts_GR.getValue("account_type"),
+					account_type_currency : accounts_GR.getValue("account_type_currency"),
+					account_code : accounts_GR.getValue("account_code"),
+					segment_1 : accounts_GR.getValue("segment_1"), 
+					segment_2 : accounts_GR.getValue("segment_2"),
+					segment_3 : accounts_GR.getValue("segment_3"),
+					segment_4 : accounts_GR.getValue("segment_4"),
+					segment_5 : accounts_GR.getValue("segment_5"),
+					period : accounts_GR.getValue("period"),
+					parent : accounts_GR.getDisplayValue("parent"),
+					consign_contract_number : accounts_GR.getValue('consignment_contract_number')
+				};  
+				invoice_accounts.push(account_object);
+			}
+			tempObj.invoice_accounts = invoice_accounts;
+			
+			
+	if(tempObj.approval_state_value=='requested')
+					tempObj.approval_state_value='承認待ち';
+			else if(tempObj.approval_state_value=='approved')
+					tempObj.approval_state_value='承認済み';
+			else if(tempObj.approval_state_value=='rejected')
+					tempObj.approval_state_value='否認済み';
+			else if(tempObj.approval_state_value=='not_required')
+					tempObj.approval_state_value='承認不要';
+			else if(tempObj.approval_state_value=='cancelled')
+					tempObj.approval_state_value='キャンセル済み';
+
+		//to get multiple approvers when status is pending approval
+		if(data.status=='requested')
+	{
+			ApprovalGR.initialize();
+			ApprovalGR.addQuery('sysapproval',grApproval.sysapproval.toString());
+			ApprovalGR.query();
+			while(ApprovalGR.next())
+			{
+				obj_appr = {						
+					approver : ApprovalGR.getDisplayValue('approver'),
+					state :  ApprovalGR.getValue('state'),
+					sid : ApprovalGR.getValue('sysapproval'),
+					updated : ApprovalGR.getValue('sys_updated_on').split(" ")[0]
+				};
+
+				data.approvals.push(obj_appr);
+
+		}	
+
+			tempObj.approvals = data.approvals;
+		}
+	
+		data.details.push(tempObj);
+		//data.details.push(invoice_accounts);
+
+	}
+	console.log(data.details);
+	//Filter coupa invoice by po_line
+	if (data.current_page == 'coupa_invoice_without_po') {
+		data.details = data.details.filter(function(item) {
+			return item.po_line == '';
+		});
+		
+	}
+	else {
+		data.details = data.details.filter(function(item) {
+			return item.po_line != '';
+		});
+	
+	}
+
+	data.total_count = data.details.length;
+
+	//Count coupa invoice state
+	data.details.forEach(function(element) {
+		
+		if(element.approval_state_value == '承認待ち') {
+			data.requested_count ++;
+		}
+		if(element.approval_state_value == '承認済み') {
+			data.approved_count++;
+		}
+		if(element.approval_state_value == '否認済み') {
+			data.rejected_count++;
+		}
+		if (element.approval_state_value == '承認不要') {
+			data.not_required_count++;
+		}
+	});
+
+	//Filter coupa invoice by status
+	if (data.status != 'all') {
+		data.details = data.details.filter(function(ele) {
+			return ele.approval_state_value == data.labelMappings[data.status];
+		})
+	}
+	
+	
+	//Get invoice attachments
+
+	data.details.forEach(function(item,index) {
+		data.details[index]['attach'] = getInvoiceAttachments(item.sys_id);
+	})
+
+	//End get invoice attachments
+
+	function getInvoiceAttachments(sys_id) {
+		var attach = [];
+		var gr = new GlideRecord('sys_attachment');
+		gr.addQuery('table_name', data.table);
+		gr.addQuery('table_sys_id', sys_id);
+		gr.query();
+		
+		while(gr.next()) {
+			attach.push({
+				sys_id : gr.getUniqueValue(),
+				file_name: gr.getValue('file_name'),
+			});
+		}
+		return attach;
+	}
+	//For Bulk Approval/Reject
+	
+	if(input){
+		if(input.action=="Approval_Action")
+		{	
+			//-->-->-->-->-->-->-->-->-->-->-->-->-->-->
+			//coupa table
+			//<--<--<--<--<--<--<--<--<--<--<--<--<--<--
+			var coupaQuery = 'sys_idIN'+input.sysIDStr;				
+			var coupaGR= new GlideRecord('x_nriws_coupa_req_coupa_invoice');
+			coupaGR.addEncodedQuery(coupaQuery);
+			coupaGR.query();
+			while(coupaGR.next()){
+				coupaGR.comments = input.actionComment;
+				coupaGR.update();
+			}
+
+			//approval table
+			var approvalQuery = 'sys_idIN'+input.approvalSysIDStr;
+			var approvalGR= new GlideRecord('sysapproval_approver');
+			approvalGR.addEncodedQuery(approvalQuery);
+			approvalGR.query();
+
+			while(approvalGR.next()){
+				approvalGR.state = input.state
+				approvalGR.comments = input.actionComment;
+				approvalGR.update();
+			}
+
+		
+		}
+	}
+	// var CoupaCommonUtils =new x_nriws_coupa_req.CoupaCommonUtils();
+	// var result =CoupaCommonUtils.isDelegateApprover();
+	
+	//Get Requesters for delegate
+	
+	function getRequesterIds(id) {
+		var requester_ids = [];
+		var today =new GlideDateTime().getDisplayValue();
+		var gr = new GlideRecord('sys_user_delegate');
+		gr.addQuery('delegate', id);
+		gr.addQuery('approvals',true);
+		gr.addQuery('ends','>=',new GlideDateTime().getDisplayValue());
+		gr.addQuery('starts','<=',new GlideDateTime().getDisplayValue());
+		gr.query();
+		while(gr.next()) {
+			requester_ids.push(gr.user.toString());
+			// if (gr.ends.getDisplayValue() >= today && gr.starts.getDisplayValue()<=today)
+			// {
+				
+			// }
+		}
+		return requester_ids;
+	}
+	
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-06 06:16:32</sys_created_on>
+        <sys_id>3608faa307d230108c77f7fc7c1ed0d9</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>test list</sys_name>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_update_name>sp_widget_3608faa307d230108c77f7fc7c1ed0d9</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-06 06:27:47</sys_updated_on>
+        <template><![CDATA[<div>
+<!-- your widget template -->
+   <button class="btn btn-success" ng-click="c.openModal('Approve')">
+      ${一括承認}
+    </button>
+    <button class="btn btn-danger" ng-click="c.openModal('Reject')">
+      ${一括否認}
+    </button>
+	<script type="text/ng-template" id="modalTemplate">
+      <div class="overview"> 
+        <div class="panel panel-default">
+            <div class="panel-heading">
+            	<h4 class="panel-title">Are your sure?</h4>
+  </div>
+            <div class="panel-body wrapper-xl">
+            	<div class="container-fluid">
+              <table class="table table-hover ">
+              	<thead>
+               	 	<th ">申請書 #</th>
+                 	<th ">申請者</th>
+        					<th ">合計</th>
+  </thead>
+                <tbody>
+                	<tr ng-repeat="req in c.data.details|filter: {checked: true}: false">
+                  	<td>{{req.id}}</td>
+                    <td>{{req.req_by}} </td>
+                    <td>{{req.amount_include_tax}} {{req.currency}}</td>
+  </tr>
+  </tbody>
+  </table>
+  </div>            
+  </div>
+          <!--<div class="panel-footer text-right">
+                <button ng-if="c.action=='Approve'"
+                class="btn btn-success" 
+                data-toggle="modal" data-target="#Modal-approve" ng-click="c.closeModal()"
+                >${一括承認}</button>
+                <button ng-if="c.action=='Reject'"
+                class="btn btn-danger" 
+                data-toggle="modal" data-target="#Modal-approve" ng-click="c.closeModal()"
+                >${一括否認}</button>
+                <button 
+                class="btn btn-warning" 
+                ng-click="c.closeModal()"
+                >${キャンセル}</button>
+  </div>-->  
+      <div class="modal-header">
+        <h4 class="modal-title">コメント</h4>
+      </div>
+      <div class="modal-body col-sm-12">
+        <textarea ng-model="c.approveCmmt" id="approveCmmt" placeholder="ここにコメントを記載してください。" style="width:80%;padding:10px;resize:vertical;" ></textarea>
+      </div>
+      <div class="modal-footer">
+        <button ng-if="c.action=='Reject'" type="button" class="btn btn-danger" ng-click="c.bulkApprove()" data-dismiss="modal">否認コメントを追加</button>
+        <button  ng-if="c.action=='Approve'" type="button" class="btn btn-success" ng-click="c.bulkApprove()" data-dismiss="modal">承認コメントを追加</button>
+        <button type="button" class="btn btn-warning" data-dismiss="modal">キャンセル</button>
+  </div>
+  </div>
+  </div>
+</script>
+</div>
+
+]]></template>
+    </sp_widget>
+</record_update>

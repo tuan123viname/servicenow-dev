@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_613320_google_in.loadOverdueTask</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Load tasks in database</description>
+        <name>loadOverdueTask</name>
+        <script><![CDATA[var loadOverdueTask = Class.create();
+loadOverdueTask.prototype = {
+    initialize: function() {
+    },
+	
+	loadOverdue: function() {
+		var rightNow = new GlideDateTime('2021-09-18 19:25:22');
+		var overDue = new GlideRecord('x_613320_google_in_tasks');
+		overDue.addQuery('due_date','<=',rightNow);
+		overDue.addQuery('state',1);
+		overDue.query();
+		var recs = 0; 
+		var arrayTask = [];
+		while(overDue.next()){ 
+			recs++;
+			if(recs == 1) {
+				gs.info(overDue.number);
+			}
+			var task = {
+				'number': overDue.getDisplayValue('number'),
+				'sys_created_by': overDue.getDisplayValue('sys_created_by'),
+				'due_date': overDue.getDisplayValue('due_date'),
+				'section': overDue.getDisplayValue('section'),
+				'sys_id' : overDue.getDisplayValue('sys_id'),
+			};
+			arrayTask.push(task);
+			gs.info(overDue.number);
+			gs.info(task.sys_id);
+		}
+		var obj = JSON.stringify(arrayTask);
+		var dataArray = JSON.stringify(overDue);
+		gs.eventQueue('x_613320_google_in.overdueTask',overDue,dataArray,obj);
+	},
+    type: 'loadOverdueTask'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-15 01:31:52</sys_created_on>
+        <sys_id>1bfbcca607e234108c77f7fc7c1ed074</sys_id>
+        <sys_mod_count>56</sys_mod_count>
+        <sys_name>loadOverdueTask</sys_name>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_update_name>sys_script_include_1bfbcca607e234108c77f7fc7c1ed074</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-22 10:00:44</sys_updated_on>
+    </sys_script_include>
+</record_update>

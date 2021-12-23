@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_instance_link">
+    <sp_instance_link action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <class_name/>
+        <color>primary</color>
+        <css/>
+        <glyph>eye</glyph>
+        <id/>
+        <kb_article/>
+        <kb_category display_value="Policies">5a7b2552ff0131009b20ffffffffffb1</kb_category>
+        <kb_topic/>
+        <order>1</order>
+        <roles/>
+        <sc_cat_item/>
+        <sc_category/>
+        <short_description>Look for answers to your questions about corporate processes and policies</short_description>
+        <size>md</size>
+        <sp_column display_value="2">87cd33cf07e2b4108c77f7fc7c1ed05c</sp_column>
+        <sp_page display_value="kb_category">0e461a2147132100ba13a5554ee4900e</sp_page>
+        <sp_widget display_value="Icon Link">3caa67afcb13020000f8d856634c9c2e</sp_widget>
+        <sys_class_name>sp_instance_link</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-17 08:30:25</sys_created_on>
+        <sys_id>be40c0530726b4108c77f7fc7c1ed03b</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>Knowledge Base</sys_name>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_update_name>sp_instance_link_be40c0530726b4108c77f7fc7c1ed03b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-17 08:44:00</sys_updated_on>
+        <title>Knowledge Base</title>
+        <type>kb_category</type>
+        <url/>
+        <widget_parameters><![CDATA[{
+	"link_template": {
+		"value": "Color Box",
+		"displayValue": "Color Box"
+	}
+}]]></widget_parameters>
+    </sp_instance_link>
+    <sys_translated_text action="delete_multiple" query="documentkey=be40c0530726b4108c77f7fc7c1ed03b"/>
+</record_update>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function() {  /* widget controller */  var c = this;};]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {  }]]></link>
+        <name>Project list top</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {  /* populate the 'data' object */  /* e.g., data.table = $sp.getValue('table'); */})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-20 13:09:51</sys_created_on>
+        <sys_id>950d54d407f630108c77f7fc7c1ed07b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Project list top</sys_name>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_update_name>sp_widget_950d54d407f630108c77f7fc7c1ed07b</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-20 13:09:51</sys_updated_on>
+        <template><![CDATA[
+<!-- your widget template -->
+<div   class="khoitong">
+  <div class="container">
+    <h2 style="padding-left: 10px;">List<img ng-click="c.openModalProject()" id="imgDots" src="three_dots.png" width="16" height="16"/></h2>
+    <hr>
+</div>
+<div class="divSearch">
+  <input ng-model="searchText" type="text" placeholder="Search.." class="input_search">  
+  <img ng-click="c.show()" ng-if='check_hide_show' src="filter.png" width="20" height="20"/>
+</div>
+<div ng-mouseover="c.hoverProject()" class="motkhoi" ng-repeat="item in c.data.projectList | filter: searchText">
+  <div class="project_div">
+    <h3 style="display: inline; margin-bottom: 1.3rem;" ng-click="c.display($index,c.data.projectList.length)"><img  style="padding-right: 10px;" src="folder.png" width="25" height="20"/>{{ item.name }}  </h3> <img class="defaultPlus" ng-click="c.openModal()" id="imgPlus"+{{$index}} src="plus.png" width="12" height="12"/></div>
+    <div class="project-item" ng-if="c.data.projectList[$index].display">
+        <ul style="padding-left: 37px;" class="section" ng-repeat="section in item.sectionList | filter: searchText" >
+            <li class="section-item" ng-click="c.triggerFunction(section.sys_id,section.name,section.project)">{{section.name}}</li>
+        </ul>
+    </div>
+</div>
+<div  class="button_show_hide">
+  <img ng-if="check_btn_left" ng-click="c.hide()" class="button_left" src="left_button.png" width="35" height="35"/>
+  <img ng-if="check_btn_right" ng-click="c.show()" class="button_right" src="right_button.png" width="35" height="35"/>
+</div>
+</div>
+<script type="text/ng-template" id = "workspace-modal">
+    <div class="modal-header">
+      <h3>Create Section</h3>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label for="">Name</label><input  ng-model = "name_section" type="text" class = 'form-control'/>
+        <!--<label for="">Project</label><input  ng-modal = "c.description" type="text" class = 'form-control' value="kinetone development"/>-->
+        <sn-record-picker  field="project" table="'x_613320_google_in_project'" default-query = "''" display-field="''" display-fields="'name'" value-field="'sys_id'" search-fields="'name'" page-size="10"  placeholder="Project" ></sn-record-picker>
+         <div class="modal-footer">
+            <button ng-click = "createSection()" class = "btn btn-success">Submit</button>
+         </div>
+        
+      </div>
+    </div>
+  </script>
+
+  <script type="text/ng-template" id = "workspace-modal-project">
+    <div class="modal-header">
+      <h3>Create Project</h3>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <!-- <label for="">Name</label><input id="input1" ng-model = "c.name_project" type="text" class = 'form-control'/> -->
+        <textarea ng-model="name" id="approveCmmt" placeholder="name。" style="width:80%;padding:10px;resize:vertical;" ></textarea>
+        <sn-record-picker  field="group" table="'sys_user_group'" default-query = "'active=true'" display-field="''" display-fields="'name,manager'" value-field="'sys_id'" search-fields="'name'" page-size="10"  placeholder="Group" ></sn-record-picker>
+        <sn-record-picker  field="workspace" table="'x_613320_google_in_workspace'" default-query = "" display-field="" display-fields="'name,description'" value-field="'sys_id'" search-fields="'name'" page-size="10"  placeholder="workspace" ></sn-record-picker>
+        <br>
+        <button ng-click = "createProject()" class = "btn btn-success" data-dismiss="modal">Submit</button>
+      </div>
+    </div>
+  </script>
+
+]]></template>
+    </sp_widget>
+</record_update>

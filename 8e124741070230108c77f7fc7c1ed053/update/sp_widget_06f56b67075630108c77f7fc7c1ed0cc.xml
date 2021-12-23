@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[api.controller=function($scope, $rootScope , $uibModal, spUtil) {
+  /* widget controller */
+  var c = this;
+   
+  $rootScope.assigned_user = {
+    displayValue: "",
+    value: "",
+    name: 'assigned_user'
+  }
+  $rootScope.due_date = {
+    value : '',
+    displayValue : '',
+    name : 'due_date'
+  }
+  $rootScope.section = {
+    value : '',
+    displayValue : '',
+    name : 'section'
+  }
+  
+
+  $rootScope.$on('show_task_list', function(event, data) {
+    
+    data.action = 'show_task_list';
+    c.server.get(data)
+    .then(function(res) {
+      c.data = res.data;
+      console.log(c.data);
+      $rootScope.section.value = res.data.section_id;
+      $rootScope.section.displayValue = res.data.section_name;
+    }) 
+    .catch(function(err) {
+      console.log(err);
+    })
+    
+    spUtil.recordWatch($scope, 'x_613320_google_in_tasks', "section=" + data.section_id, function(name) {
+      
+      var record = name.data.record;
+      if (record.section.value == c.data.section_id) {
+        var newTask = {
+          name : record.name.display_value,
+          sys_id : record.sys_id,
+          assigned_to : record.assigned_to.display_value,
+          due_date : record.due_date.display_value,
+          priority : record.priority.display_value,
+          status : record.status.display_value
+        }
+      
+        if (!c.data.tasks[record.status.value]) {
+          c.data.tasks[record.status.value] = [];
+        }
+        c.data.tasks[record.status.value].push(newTask);
+      }
+    })
+  })
+  $rootScope.$on('field.change', function(evt, parms) {
+    if (parms.field.name == 'assigned_user') {
+      $rootScope.assigned_user = parms.field;
+      
+    }
+    if (parms.field.name == 'section') {
+      $rootScope.section = parms.field;
+      
+      spUtil.recordWatch($scope, 'x_613320_google_in_tasks', "section=" + $rootScope.section.value, function(name) {
+        console.log(name);
+      })
+    }
+  })
+
+
+  c.openModal = function() {
+    c.modalInstance = $uibModal.open({
+      templateUrl: 'task-modal',
+      controller: popupController,
+      controllerAs: 'ctrl',
+      
+      });
+  } 
+ 
+  function popupController($scope, $uibModalInstance) {
+    var ctrl = this;
+    $scope.name = 'sdfs';
+    $scope.priority = '1';
+    $scope.status = 'accepted';
+    $scope.description = 'dsfsdf';
+   
+    $scope.createTask = function() {
+      
+      c.server.get({
+        action : 'create_task',
+        formData : {
+          name : $scope.name,
+          description : $scope.description,
+          assigned_user : $rootScope.assigned_user.value,
+          due_date : $rootScope.due_date.value,
+          section : $rootScope.section.value,
+          priority : $scope.priority,
+          status : $scope.status
+        }
+      })
+      .then(function(res) {
+        c.closeModal();
+      })
+    }
+    
+    c.closeModal = function() {
+      c.modalInstance.close();
+    }
+  }
+
+  $scope.openTaskDetail = function(sys_id) {
+   
+    c.server.get({
+      action : 'get_task_detail_widget',
+      sys_id : sys_id
+    })
+    .then(function(res) {
+      c.data.taskDetailWidget = res.data.taskDetailWidget;
+      console.log(c.data.taskDetailWidget);
+    })
+  }
+
+  
+  
+};]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.task-list-container {
+  .header {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    .section-name {
+      flex: 1;
+    }
+  }
+  .body {
+    .task-list-item {
+      table {
+        
+      }
+    }
+  }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id/>
+        <internal>false</internal>
+        <link><![CDATA[function link(scope, element, attrs, controller) {
+  
+}]]></link>
+        <name>Task list</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+  data.tasks = {};
+  data.section_name = '';
+  data.section_id = '';
+  console.log(data.section_id);
+  if (input) {
+    console.log(input);
+    if (input.action == 'show_task_list') {
+      data.section_name = input.section_name;
+      data.section_id = input.section_id;
+      var gr = new GlideRecord('x_613320_google_in_tasks');
+      gr.addQuery('section', input.section_id);
+      gr.query();
+      var status;
+    
+      while(gr.next()) {
+        status = gr.status + '';
+        if (!data.tasks[status]) {
+          data.tasks[status] = [];
+        }
+        data.tasks[status].push({
+          sys_id : gr.getUniqueValue(),
+          name : gr.getValue('name'),
+          assigned_to : gr.assigned_to.getDisplayValue(),
+          due_date : gr.getValue('due_date'),
+          priority : gr.getDisplayValue('priority'),
+          status : gr.getValue('status')
+        });
+      }
+    }
+
+    if (input.action == 'create_task') {
+      var gr = new GlideRecord('x_613320_google_in_tasks');
+      gr.initialize();
+      gr.name = input.formData.name;
+      gr.description = input.formData.description;
+      gr.assigned_to = input.formData.assigned_user;
+      gr.due_date = input.formData.due_date;
+      gr.section = input.formData.section;
+      gr.priority = input.formData.priority;
+      gr.status = input.formData.status;
+      gr.insert();
+ 
+    }
+
+    if (input.action == 'get_task_detail_widget') {
+      data.taskDetailWidget = $sp.getWidget('task_detail', {sys_id: input.sys_id});
+   
+    }
+   
+  }
+
+
+
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-09-06 09:37:05</sys_created_on>
+        <sys_id>06f56b67075630108c77f7fc7c1ed0cc</sys_id>
+        <sys_mod_count>280</sys_mod_count>
+        <sys_name>Task list</sys_name>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_update_name>sp_widget_06f56b67075630108c77f7fc7c1ed0cc</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-09-17 09:18:48</sys_updated_on>
+        <template><![CDATA[<div class="task-list-container">
+<!-- your widget template -->
+  <div class="header">
+    <div class="section-name">
+      {{ c.data.section_name }}
+    </div>
+    <div class="action-btn">
+      <button class="btn btn-success" ng-click = "c.openModal()">New task</button>
+
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="task-list-item" ng-repeat = "(key, task_list) in c.data.tasks">
+      <table  class="table table-striped">
+        <thead>
+          <tr>
+            <th style="width: 30%;">{{key}}</th>
+            <th>Assignee</th>
+            <th>Due date</th>
+            <th>Priority</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat = "item in task_list">
+            <td><a ng-click = "openTaskDetail(item.sys_id)" href="javascript:void(0)">{{ item.name }}</a></td>
+            <td>{{item.assigned_to}}</td>
+            <td>{{item.due_date}}</td>
+            <td>{{item.priority}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div >
+  <sp-widget widget = 'c.data.taskDetailWidget'></sp-widget>
+</div>
+
+<script type="text/ng-template" id = "task-modal">
+  <div class="modal-header">
+    <h3>Create a Task</h3>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="">Name</label><input ng-change = "change()" ng-model = "name" type="text" class = 'form-control'/>
+      <label for="">Description</label><input  ng-model = "description" type="text" class = 'form-control'/>
+      <label for="">Assign to</label><sn-record-picker field = "assigned_user" table="'sys_user'" default-query = "'active=true'" display-field="'name'" display-fields="'name,email'" value-field="'sys_id'" search-fields="'name,email'" page-size="10"  placeholder="Assign to" ></sn-record-picker>  
+      <label for="">Due date</label><sp-date-picker field="due_date" ng-model="due_date.value" ng-model-options="{getterSetter: true}" sn-disabled="false"></sp-date-picker>
+      <label  for="">Section</label><sn-record-picker  field = "section" table="'x_613320_google_in_section'" default-query = "''" display-field="'name'" display-fields="'name,project'" value-field="'sys_id'" search-fields="'name,project'" page-size="10"  placeholder="Section" ></sn-record-picker> 
+      <br>
+      <label for="">Priority</label>
+      <select ng-model = "priority" id="">
+        <option value="1">1 - Criticial</option>
+        <option value="2">2 - High</option>
+        <option value="3">3 - Moderate</option>
+        <option value="4">4 - Low</option>
+        <option value="5">5 - Planning</option>
+      </select>
+      <label for="">Status</label>
+      <select ng-model = "status" id="">
+        <option value="accepted">Accepted</option>
+        <option value="closed">Closed</option>
+      </select>
+      <br> 
+      <button ng-click = "createTask()" class = "btn btn-success">Submit</button>
+    </div>
+  </div>
+</script>]]></template>
+    </sp_widget>
+</record_update>

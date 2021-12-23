@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Workspace " max_length="40" name="x_613320_google_in_workspace" sizeclass="15" type="collection">
+        <element label="description" max_length="255" name="description" type="string"/>
+        <element label="name" max_length="40" name="name" type="string"/>
+    </element>
+</database>

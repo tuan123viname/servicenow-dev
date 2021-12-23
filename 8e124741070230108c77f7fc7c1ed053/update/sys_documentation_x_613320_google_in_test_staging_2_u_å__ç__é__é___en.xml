@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="u_å__ç__é__é__" label="å¥‘ç´„é‡‘é¡�" language="en" table="x_613320_google_in_test_staging_2">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>u_å__ç__é__é__</element>
+            <help/>
+            <hint/>
+            <label>å¥‘ç´„é‡‘é¡�</label>
+            <language>en</language>
+            <name>x_613320_google_in_test_staging_2</name>
+            <plural>å¥‘ç´„é‡‘é¡�s</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2021-11-25 02:41:15</sys_created_on>
+            <sys_id>b8164ad5070001108c77f7fc7c1ed09c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>å¥‘ç´„é‡‘é¡�</sys_name>
+            <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+            <sys_update_name>sys_documentation_x_613320_google_in_test_staging_2_u_å__ç__é__é___en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2021-11-25 02:41:15</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

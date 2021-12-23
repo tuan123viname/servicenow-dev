@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element label="Token Track" max_length="40" name="x_613320_google_in_token_track" sizeclass="1" type="collection">
+        <element label="Access token" max_length="300" name="access_token" type="string"/>
+        <element label="Expired" max_length="10" name="expired" type="boolean"/>
+        <element label="Refresh token" max_length="300" name="refresh_token" type="string"/>
+    </element>
+</database>

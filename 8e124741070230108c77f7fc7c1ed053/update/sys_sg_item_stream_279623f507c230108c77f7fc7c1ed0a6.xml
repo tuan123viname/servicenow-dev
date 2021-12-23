@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_sg_item_stream">
+    <sys_sg_item_stream action="INSERT_OR_UPDATE">
+        <data_item display_value="Weebpal log time">a1866fb507c230108c77f7fc7c1ed094</data_item>
+        <interleaved_field/>
+        <name>Weebpal log Time Item Stream</name>
+        <sys_class_name>sys_sg_item_stream</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2021-08-19 12:54:27</sys_created_on>
+        <sys_id>279623f507c230108c77f7fc7c1ed0a6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Weebpal log Time Item Stream</sys_name>
+        <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+        <sys_update_name>sys_sg_item_stream_279623f507c230108c77f7fc7c1ed0a6</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2021-08-19 12:54:27</sys_updated_on>
+        <table>x_613320_google_in_weebpal_log_time_staging</table>
+    </sys_sg_item_stream>
+</record_update>

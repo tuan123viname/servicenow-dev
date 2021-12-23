@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element extends="task" label="tasks" max_length="40" name="x_613320_google_in_tasks" sizeclass="97" type="collection">
+        <element label="comment" max_length="255" name="comment" type="string"/>
+        <element label="mail status" max_length="40" name="mail_status" type="string"/>
+        <element label="name" max_length="40" name="name" type="string"/>
+        <element label="number task" max_length="8000" name="number_task" type="script"/>
+        <element label="number task 2" max_length="8000" name="number_task_2" type="html"/>
+        <element hint="test" label="number task 3" max_length="1024" name="number_task_3" type="url"/>
+        <element attributes="no_truncate" label="number task 4" max_length="1024" name="number_task_4" type="string"/>
+        <element attributes="encode_utf8=false" label="Section" mandatory="true" max_length="32" name="section" reference="x_613320_google_in_section" type="reference"/>
+        <element choice="1" label="status" max_length="40" name="status" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="approved" value="approved"/>
+                <element inactive_on_update="false" label="pending approval" value="pending approval"/>
+                <element inactive_on_update="false" label="Rejected" value="rejected"/>
+            </choice>
+        </element>
+        <element label="test delete" max_length="40" name="test_delete" type="string"/>
+    </element>
+</database>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_documentation element="u_task_title_c_hã_ng_cã__link" label="Task title Copy trong task subject hoáº·c viáº¿t tÃ³m táº¯t ná»™i dung task náº¿" language="en" table="x_613320_google_in_weebpal_log_time_staging">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>u_task_title_c_hã_ng_cã__link</element>
+            <help/>
+            <hint/>
+            <label>Task title Copy trong task subject hoáº·c viáº¿t tÃ³m táº¯t ná»™i dung task náº¿</label>
+            <language>en</language>
+            <name>x_613320_google_in_weebpal_log_time_staging</name>
+            <plural>Task title Copy trong task subject hoáº·c viáº¿t tÃ³m táº¯t ná»™i dung task náº¿</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2021-08-24 04:14:13</sys_created_on>
+            <sys_id>b77fd7df07ce30108c77f7fc7c1ed067</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>Task title Copy trong task subject hoáº·c viáº¿t tÃ³m táº¯t ná»™i dung task náº¿u khÃ´ng cÃ³ link</sys_name>
+            <sys_package display_value="Google integration" source="x_613320_google_in">8e124741070230108c77f7fc7c1ed053</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Google integration">8e124741070230108c77f7fc7c1ed053</sys_scope>
+            <sys_update_name>sys_documentation_x_613320_google_in_weebpal_log_time_staging_u_task_title_c_hã_ng_cã__link_en</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2021-08-24 04:14:13</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>
