@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><database>
     <element label="Section " max_length="40" name="x_613320_google_in_section" sizeclass="33" type="collection">
-        <element label="name" max_length="40" name="name" type="string"/>
+        <element label="Name dev 2" max_length="40" name="name" type="string"/>
         <element label="project" max_length="32" name="project" reference="x_613320_google_in_project" type="reference"/>
         <index name="index">
             <element name="project"/>
